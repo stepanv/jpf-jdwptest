@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import gov.nasa.jpf.jdwp.JDWPRunner;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,6 +25,7 @@ import java.util.Vector;
 import junit.framework.Test;
 import junit.framework.TestCase;
 
+import org.eclipse.debug.jdi.tests.program.MainClass;
 import org.eclipse.jdi.Bootstrap;
 import org.junit.After;
 import org.junit.Before;
@@ -1057,8 +1060,15 @@ public abstract class AbstractJDITest extends TestCase {
 	public void setUp() {
 		int port = findFreePort();
 		
-		AbstractJDITest.parseArgs(new String[] {"-vmcmd", "c:\\Programs\\Java\\jdk1.7.0_25\\bin\\java.exe -Xmx512m -Djdwp=transport=dt_socket,server=y,suspend=y,address="+port+" -cp c:\\Users\\stepan\\Data\\Mff\\mthesis\\public-sources\\jpf-jdwp\\build\\main;C:\\Users\\stepan\\Data\\Mff\\mthesis\\public-sources\\jpf-jdwp\\lib\\log4j-1.2.17.jar;c:\\Users\\stepan\\Data\\Mff\\mthesis\\public-sources\\jpf-core\\build\\jpf.jar;C:\\Users\\stepan\\Data\\Mff\\mthesis\\public-sources\\jpf-jdwp\\lib\\slf4j-api-1.7.5.jar;C:\\Users\\stepan\\Data\\Mff\\mthesis\\public-sources\\jpf-jdwp\\lib\\slf4j-log4j12-1.7.5.jar gov.nasa.jpf.jdwp.JDWPRunner +target=org.eclipse.debug.jdi.tests.program.MainClass +classpath=+,c:\\Users\\stepan\\Data\\Devel\\eclipse.jdt.debug.2\\org.eclipse.jdt.debug.jdi.tests\\bin", "-launcher", "JPFLauncher", "-port", String.valueOf(port), "-stdout", "c:\\temp\\stdout.txt", "-stderr", "c:\\temp\\stderr.txt"});
-		
+		// -agentlib:jdwp=transport=dt_socket,server=n,suspend=n,address=5232
+
+		AbstractJDITest.parseArgs(new String[] {
+				"-vmcmd",
+				"java -Xmx512m -Djdwp=transport=dt_socket,server=y,suspend=y,address=" + port + " -cp \"" + System.getProperty("java.class.path")
+						+ "\" " + JDWPRunner.class.getName() + " +target=" + MainClass.class.getName() + " +classpath=+,bin", "-launcher",
+				"JPFLauncher", "-port", String.valueOf(port), "-stdout", System.getProperty("java.io.tmpdir") + File.separator + "stdout.txt",
+				"-stderr", System.getProperty("java.io.tmpdir") + File.separator + "stderr.txt" });
+
 		if (fVM == null || fInControl) {
 			launchTargetAndStartProgram();
 		}
