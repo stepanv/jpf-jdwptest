@@ -94,14 +94,7 @@ public class HotCodeReplacementTest extends AbstractJDITest {
 	public static void main(String[] args) {
 		new HotCodeReplacementTest().runSuite(args);
 	}
-	/**
-	 * Gets the name of the test case.
-	 * @see junit.framework.TestCase#getName()
-	 */
-	@Override
-	public String getName() {
-		return "Hot code replacement extension to JDI (org.eclipse.jdi.hcr) tests";
-	}
+
 	private void reenterOnExit(ThreadReference thread) {
 		// Get top frame's location
 		Location location = null;

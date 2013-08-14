@@ -93,14 +93,7 @@ public class EventTest extends AbstractJDITest {
 	public static void main(java.lang.String[] args) {
 		new EventTest().runSuite(args);
 	}
-	/**
-	 * Gets the name of the test case.
-	 * @see junit.framework.TestCase#getName()
-	 */
-	@Override
-	public String getName() {
-		return "com.sun.jdi.event.Event";
-	}
+
 	/**
 	 * Test JDI request().
 	 */

@@ -11,7 +11,6 @@
 
 package org.eclipse.debug.jdi.tests;
 
-import com.sun.jdi.ReferenceType;
 import com.sun.jdi.event.ExceptionEvent;
 
 /**
@@ -55,31 +54,24 @@ public class ExceptionEventTest extends AbstractJDITest {
 	public static void main(java.lang.String[] args) {
 		new ExceptionEventTest().runSuite(args);
 	}
-	/**
-	 * Gets the name of the test case.
-	 * @see junit.framework.TestCase#getName()
-	 */
-	@Override
-	public String getName() {
-		return "com.sun.jdi.event.ExceptionEvent";
-	}
-	/**
-	 * Test JDI catchLocation().
-	 */
-	public void testJDICatchLocation() {
-		// Uncaught exception
-		assertTrue("1", fEvent.catchLocation() == null);
 
-		// TO DO: Caught exception
-	}
-	/**
-	 * Test JDI exception().
-	 */
-	public void testJDIException() {
-		ReferenceType expected =
-			fVM.classesByName("java.lang.Error").get(0);
-		assertEquals("1", expected, fEvent.exception().referenceType());
-	}
+//	/**
+//	 * Test JDI catchLocation().
+//	 */
+//	public void testJDICatchLocation() {
+//		// Uncaught exception
+//		assertTrue("1", fEvent.catchLocation() == null);
+//
+//		// TO DO: Caught exception
+//	}
+//	/**
+//	 * Test JDI exception().
+//	 */
+//	public void testJDIException() {
+//		ReferenceType expected =
+//			fVM.classesByName("java.lang.Error").get(0);
+//		assertEquals("1", expected, fEvent.exception().referenceType());
+//	}
 	/**
 	 * Test JDI thread().
 	 */

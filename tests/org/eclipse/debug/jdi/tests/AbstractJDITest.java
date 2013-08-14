@@ -13,6 +13,7 @@ package org.eclipse.debug.jdi.tests;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.ServerSocket;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -23,6 +24,8 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 
 import org.eclipse.jdi.Bootstrap;
+import org.junit.After;
+import org.junit.Before;
 
 import com.sun.jdi.AbsentInformationException;
 import com.sun.jdi.ArrayReference;
@@ -99,12 +102,6 @@ public abstract class AbstractJDITest extends TestCase {
 	// Stack offset to the MainClass.run() method
 	protected static final int RUN_FRAME_OFFSET = 1;
 
-	/**
-	 * Constructs a test case with a default name.
-	 */
-	public AbstractJDITest() {
-		super("JDI Test");
-	}
 	/**
 	 * Returns the names of the tests that are known to not work
 	 * By default, none are excluded.
@@ -1035,9 +1032,9 @@ public abstract class AbstractJDITest extends TestCase {
 
 		// Run test
 		System.out.println(new java.util.Date());
-		System.out.println("Begin testing " + getName() + "...");
+		//System.out.println("Begin testing " + getName() + "...");
 		junit.textui.TestRunner.run(suite());
-		System.out.println("Done testing " + getName() + ".");
+		//System.out.println("Done testing " + getName() + ".");
 	}
 	/**
 	 * Sets the 'in control of the VM' flag for this test.
@@ -1052,11 +1049,16 @@ public abstract class AbstractJDITest extends TestCase {
 		launchTargetAndConnectToVM();
 		startProgram();
 	}
+	
 	/**
 	 * Init tests
 	 */
-	@Override
-	protected void setUp() {
+	@Before
+	public void setUp() {
+		int port = findFreePort();
+		
+		AbstractJDITest.parseArgs(new String[] {"-vmcmd", "c:\\Programs\\Java\\jdk1.7.0_25\\bin\\java.exe -Xmx512m -Djdwp=transport=dt_socket,server=y,suspend=y,address="+port+" -cp c:\\Users\\stepan\\Data\\Mff\\mthesis\\public-sources\\jpf-jdwp\\build\\main;C:\\Users\\stepan\\Data\\Mff\\mthesis\\public-sources\\jpf-jdwp\\lib\\log4j-1.2.17.jar;c:\\Users\\stepan\\Data\\Mff\\mthesis\\public-sources\\jpf-core\\build\\jpf.jar;C:\\Users\\stepan\\Data\\Mff\\mthesis\\public-sources\\jpf-jdwp\\lib\\slf4j-api-1.7.5.jar;C:\\Users\\stepan\\Data\\Mff\\mthesis\\public-sources\\jpf-jdwp\\lib\\slf4j-log4j12-1.7.5.jar gov.nasa.jpf.jdwp.JDWPRunner +target=org.eclipse.debug.jdi.tests.program.MainClass +classpath=+,c:\\Users\\stepan\\Data\\Devel\\eclipse.jdt.debug.2\\org.eclipse.jdt.debug.jdi.tests\\bin", "-launcher", "JPFLauncher", "-port", String.valueOf(port), "-stdout", "c:\\temp\\stdout.txt", "-stderr", "c:\\temp\\stderr.txt"});
+		
 		if (fVM == null || fInControl) {
 			launchTargetAndStartProgram();
 		}
@@ -1264,14 +1266,8 @@ public abstract class AbstractJDITest extends TestCase {
 	/**
 	 * Undo the initialization of the test.
 	 */
-	@Override
-	protected void tearDown() {
-		try {
-			super.tearDown();
-		} catch (Exception e) {
-			System.out.println("Exception during tear down:");
-			e.printStackTrace();
-		}
+	@After
+	public void tearDown() {
 		try {
 			verbose("Tearing down the test");
 			localTearDown();
@@ -1291,7 +1287,6 @@ public abstract class AbstractJDITest extends TestCase {
 			System.out.println("Error during tear down:");
 			e.printStackTrace();
 		}
-
 	}
 	/**
 	 * Triggers and waits for the given event to come in.
@@ -1490,4 +1485,30 @@ public abstract class AbstractJDITest extends TestCase {
 		fEventReader.removeEventListener(waiter);
 		fVM.eventRequestManager().deleteEventRequest(request);
 	}
+	
+	/**
+	 * Eclipe SDK
+	 * 
+	 * Returns a free port number on localhost, or -1 if unable to find a free port.
+	 * 
+	 * @return a free port number on localhost, or -1 if unable to find a free port
+	 * @since 3.0
+	 */
+	public static int findFreePort() {
+		ServerSocket socket= null;
+		try {
+			socket= new ServerSocket(0);
+			return socket.getLocalPort();
+		} catch (IOException e) { 
+		} finally {
+			if (socket != null) {
+				try {
+					socket.close();
+				} catch (IOException e) {
+				}
+			}
+		}
+		return -1;		
+	}	
+	
 }

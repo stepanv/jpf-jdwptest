@@ -41,14 +41,6 @@ public class BooleanValueTest extends AbstractJDITest {
 		new BooleanValueTest().runSuite(args);
 	}
 	/**
-	 * Gets the name of the test case.
-	 * @see junit.framework.TestCase#getName()
-	 */
-	@Override
-	public String getName() {
-		return "com.sun.jdi.BooleanValue";
-	}
-	/**
 	 * Test JDI equals() and hashCode().
 	 */
 	public void testJDIEquality() {

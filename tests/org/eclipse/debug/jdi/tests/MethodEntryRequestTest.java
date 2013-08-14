@@ -46,14 +46,7 @@ public class MethodEntryRequestTest extends AbstractJDITest {
 	public static void main(java.lang.String[] args) {
 		new MethodEntryRequestTest().runSuite(args);
 	}
-	/**
-	 * Gets the name of the test case.
-	 * @see junit.framework.TestCase#getName()
-	 */
-	@Override
-	public String getName() {
-		return "com.sun.jdi.MethodEntryRequest";
-	}
+
 
 	/**
 	 * Creates and returns a new <code>MethodEntryRequest</code>

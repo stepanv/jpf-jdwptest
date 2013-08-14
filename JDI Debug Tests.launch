@@ -8,5 +8,6 @@
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.eclipse.debug.jdi.tests.TestAll"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-vmcmd &quot;cmd /C start sleep 1&quot; -launcher JPFLauncher -port 5231 -stdout c:\temp\stdout.txt -stderr c:\temp\stderr.txt"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="org.eclipse.jdt.debug.jdi.tests"/>
 </launchConfiguration>

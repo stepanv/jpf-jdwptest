@@ -28,7 +28,7 @@ public class TestAll {
 	 */
 	protected static Vector<Class<?>> getAllTestCases(VMInformation info) {
 		Vector<Class<?>> classes = new Vector<Class<?>>();
-		classes.addElement(AccessibleTest.class);
+		/*classes.addElement(AccessibleTest.class);
 		classes.addElement(ArrayReferenceTest.class);
 		classes.addElement(ArrayTypeTest.class);
 		classes.addElement(BooleanValueTest.class);
@@ -38,7 +38,7 @@ public class TestAll {
 		classes.addElement(ClassLoaderReferenceTest.class);
 		classes.addElement(ClassPrepareEventTest.class);
 		classes.addElement(ClassPrepareRequestTest.class);
-		classes.addElement(ClassTypeTest.class);
+		classes.addElement(ClassTypeTest.class);*/
 		classes.addElement(DoubleValueTest.class);
 		classes.addElement(EventRequestManagerTest.class);
 		classes.addElement(EventRequestTest.class);
@@ -58,7 +58,7 @@ public class TestAll {
 		classes.addElement(MethodEntryRequestTest.class);
 		classes.addElement(MethodExitRequestTest.class);
 		classes.addElement(MirrorTest.class);
-	
+	/*
 		if (info.fVM.canWatchFieldModification())
 			classes.addElement(ModificationWatchpointEventTest.class);
 			
@@ -84,7 +84,7 @@ public class TestAll {
 	
 		classes.addElement(VirtualMachineExitTest.class);
 		classes.addElement(VMDisconnectEventTest.class);
-		classes.addElement(VMDisposeTest.class);	// note that this test does not restore the state properly.
+		classes.addElement(VMDisposeTest.class);*/	// note that this test does not restore the state properly.
 		return classes;
 	}
 	/**

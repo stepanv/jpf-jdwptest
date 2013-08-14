@@ -268,7 +268,7 @@ public class MainClass extends Date implements Runnable, Printable {
 	 * Prints to System.out and throws an exception to indicate readiness
 	 */
 	synchronized public void printAndSignal() {
-		print(System.out);
+		print(System.out); new Exception("FOO").printStackTrace();
 		// Signal readiness by throwing an exception
 		try {
 			throw new NegativeArraySizeException();
@@ -459,7 +459,7 @@ public class MainClass extends Date implements Runnable, Printable {
 	 */
 	private void triggerExceptionEvent() {
 		Thread t = new Thread(new Runnable() {
-			public void run() {
+			public void run() { System.out.println("EXCEPTION !!!!!!!!!!!!! TRIGGERED");new Exception().printStackTrace();
 				throw new Error();
 			}
 		}, "Test Exception Event");

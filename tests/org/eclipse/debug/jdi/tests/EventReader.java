@@ -108,6 +108,7 @@ public class EventReader extends AbstractReader {
 					EventIterator iterator = eventSet.eventIterator();
 					while (iterator.hasNext()) {
 						Event event = iterator.nextEvent();
+						System.out.println("RECEIVED EVENT: " + event);
 						for (int i = 0; i < fEventListeners.size(); i++) {
 							EventListener listener =
 								fEventListeners.elementAt(i);

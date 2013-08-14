@@ -45,14 +45,7 @@ public class MethodExitRequestTest extends AbstractJDITest {
 	public static void main(java.lang.String[] args) {
 		new MethodExitRequestTest().runSuite(args);
 	}
-	/**
-	 * Gets the name of the test case.
-	 * @see junit.framework.TestCase#getName()
-	 */
-	@Override
-	public String getName() {
-		return "com.sun.jdi.MethodExitRequest";
-	}
+
 
 	/**
 	 * Creates and returns a new <code>MethodExitRequest</code>

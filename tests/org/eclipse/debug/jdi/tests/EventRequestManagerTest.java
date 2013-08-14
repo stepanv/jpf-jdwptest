@@ -54,14 +54,7 @@ public class EventRequestManagerTest extends AbstractJDITest {
 	public static void main(java.lang.String[] args) {
 		new EventRequestManagerTest().runSuite(args);
 	}
-	/**
-	 * Gets the name of the test case.
-	 * @see junit.framework.TestCase#getName()
-	 */
-	@Override
-	public String getName() {
-		return "com.sun.jdi.request.EventRequestManager";
-	}
+
 	/**
 	 * Test JDI createAccessWatchpointRequest(Field), accessWatchpointRequests()
 	 * and deleteEventRequest(EventRequest)

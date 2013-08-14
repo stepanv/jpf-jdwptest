@@ -46,14 +46,7 @@ public class InterfaceTypeTest extends AbstractJDITest {
 	public static void main(java.lang.String[] args) {
 		new InterfaceTypeTest().runSuite(args);
 	}
-	/**
-	 * Gets the name of the test case.
-	 * @see junit.framework.TestCase#getName()
-	 */
-	@Override
-	public String getName() {
-		return "com.sun.jdi.InterfaceType";
-	}
+
 	/**
 	 * Test JDI allFields().
 	 */

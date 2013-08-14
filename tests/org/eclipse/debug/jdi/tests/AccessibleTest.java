@@ -50,13 +50,6 @@ public class AccessibleTest extends AbstractJDITest {
 	}
 	
 	/**
-	 * @see junit.framework.TestCase#getName()
-	 */
-	@Override
-	public String getName() {
-		return "com.sun.jdi.Accessible";
-	}
-	/**
 	 * Test JDI isPackagePrivate().
 	 */
 	public void testJDIIsPackagePrivate() {

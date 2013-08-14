@@ -40,14 +40,7 @@ public class StringReferenceTest extends AbstractJDITest {
 	public static void main(java.lang.String[] args) {
 		new StringReferenceTest().runSuite(args);
 	}
-	/**
-	 * Gets the name of the test case.
-	 * @see junit.framework.TestCase#getName()
-	 */
-	@Override
-	public String getName() {
-		return "com.sun.jdi.StringReference";
-	}
+
 	/**
 	 * Test JDI value() and JDWP 'String - Get value'.
 	 */
