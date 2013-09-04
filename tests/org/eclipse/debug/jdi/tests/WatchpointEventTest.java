@@ -138,6 +138,8 @@ public class WatchpointEventTest extends AbstractJDITest {
 			"Hello World",
 			((StringReference) fStaticAccessWatchpointEvent.valueCurrent())
 				.value());
+		
+		assertTrue(getThread().isSuspended());
 
 		assertTrue(
 			"3",

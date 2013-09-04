@@ -490,13 +490,27 @@ public class MainClass extends Date implements Runnable, Printable {
 	 *	Trigger a thread end event for the front-end.
 	 */
 	private void triggerThreadDeathEvent() {
-		new Thread("Test Thread Death Event").start();
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				System.out.println("Foobar");
+				
+			}
+		}, "Test Thread Death Event").start();
 	}
+	
 	/**
 	 *	Trigger a thread start event for the front-end.
 	 */
 	private void triggerThreadStartEvent() {
-		new Thread("Test Thread Start Event").start();
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				System.out.println("running");
+			}
+		}, "Test Thread Start Event").start();
 	}
 	private void useLocalVars(Thread t, MainClass o) {
 		if (t == null)

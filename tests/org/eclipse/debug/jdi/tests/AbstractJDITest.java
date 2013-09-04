@@ -39,6 +39,7 @@ import com.sun.jdi.ClassType;
 import com.sun.jdi.Field;
 import com.sun.jdi.IncompatibleThreadStateException;
 import com.sun.jdi.InterfaceType;
+import com.sun.jdi.InternalException;
 import com.sun.jdi.InvalidTypeException;
 import com.sun.jdi.LocalVariable;
 import com.sun.jdi.Location;
@@ -367,7 +368,10 @@ public abstract class AbstractJDITest extends TestCase {
 	protected ClassLoaderReference getClassLoaderReference() {
 		// Get main class
 		ClassType type = getMainClass();
-
+		ClassLoaderReference cloader = type.classLoader();
+		if (cloader == null) {
+			
+		}
 		// Get its class loader
 		return type.classLoader();
 	}
@@ -1060,14 +1064,16 @@ public abstract class AbstractJDITest extends TestCase {
 	public void setUp() {
 		int port = findFreePort();
 		
-		// -agentlib:jdwp=transport=dt_socket,server=n,suspend=n,address=5232
+		// -agentlib:jdwp=transport=dt_socket,server=n,suspend=n,address=8000
 
-		AbstractJDITest.parseArgs(new String[] {
-				"-vmcmd",
-				"java -Xmx512m -Djdwp=transport=dt_socket,server=y,suspend=y,address=" + port + " -cp \"" + System.getProperty("java.class.path")
-						+ "\" " + JDWPRunner.class.getName() + " +target=" + MainClass.class.getName() + " +classpath=+,bin", "-launcher",
-				"JPFLauncher", "-port", String.valueOf(port), "-stdout", System.getProperty("java.io.tmpdir") + File.separator + "stdout.txt",
-				"-stderr", System.getProperty("java.io.tmpdir") + File.separator + "stderr.txt" });
+		String javaCommand = "java -Xmx512m -Djdwp=transport=dt_socket,server=y,suspend=y,address=" + port + " -cp \""
+				+ System.getProperty("java.class.path") + "\" " + JDWPRunner.class.getName() + " -show +target=" + MainClass.class.getName()
+				+ " +classpath=+,bin";
+		String stdout = System.getProperty("java.io.tmpdir") + File.separator + "stdout.txt" + port + ".txt";
+		String stderr = System.getProperty("java.io.tmpdir") + File.separator + "stderr.txt" + port + ".txt";
+
+		AbstractJDITest.parseArgs(new String[] { "-vmcmd", javaCommand, "-launcher", "JPFLauncher", "-port", String.valueOf(port), "-stdout", stdout,
+				"-stderr", stderr });
 
 		if (fVM == null || fInControl) {
 			launchTargetAndStartProgram();
@@ -1364,6 +1370,13 @@ public abstract class AbstractJDITest extends TestCase {
 		Field field = type.fieldByName("fEventType");
 		assertTrue("1", field != null);
 
+		boolean needResume = false;
+		ThreadReference thread = getThread();
+		int suspendCount = thread.suspendCount();
+		if (suspendCount > 0) {
+			needResume = true;
+		}
+		
 		Value value = null;
 		value = fVM.mirrorOf(eventType);
 		try {
@@ -1374,11 +1387,15 @@ public abstract class AbstractJDITest extends TestCase {
 			assertTrue("3", false);
 		}
 
-		// Resume the test thread
-		ThreadReference thread = getThread();
-		int suspendCount = thread.suspendCount();
-		for (int i = 0; i < suspendCount; i++)
-			thread.resume();
+//		if (needResume) {
+			// Resume the test thread
+			thread = getThread();
+			suspendCount = thread.suspendCount();
+			for (int i = 0; i < suspendCount; i++)
+				thread.resume();
+//		} else {
+//			System.out.println("no resume");
+//		}
 	}
 	/**
 	 * Triggers a step event and waits for it to come in.
@@ -1458,11 +1475,20 @@ public abstract class AbstractJDITest extends TestCase {
 	 */
 	protected void waitUntilReady() {
 		// Make sure the program is running
-		ThreadReference thread = getThread();
-		while (thread == null || thread.suspendCount() > 0) {
-			fVM.resume();
-			thread = getThread();
+		for (ThreadReference thread : fVM.allThreads()) {
+			// in JPF, we have to resume all thread otherwise the VM is not running
+			try {
+				while (thread == null || thread.suspendCount() > 0) {
+					thread.resume();
+				}
+			}
+			catch (InternalException e) {
+				// thread resumption can lead to a death of other threads
+				// don't do anything
+			}
+			
 		}
+		ThreadReference thread = getThread();
 
 		// Create exception request
 		EventRequest request =

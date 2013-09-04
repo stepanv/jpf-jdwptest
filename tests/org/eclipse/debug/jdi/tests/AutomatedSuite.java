@@ -35,7 +35,6 @@ public class AutomatedSuite extends TestSuite {
 		addTest(new TestSuite(BreakpointRequestTest.class));
 		addTest(new TestSuite(ByteValueTest.class));
 		addTest(new TestSuite(CharValueTest.class));
-		addTest(new TestSuite(ClassLoaderReferenceTest.class));
 		addTest(new TestSuite(ClassPrepareEventTest.class));
 		addTest(new TestSuite(ClassPrepareRequestTest.class));
 		addTest(new TestSuite(ClassTypeTest.class));

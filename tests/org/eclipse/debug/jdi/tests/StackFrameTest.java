@@ -52,30 +52,30 @@ public class StackFrameTest extends AbstractJDITest {
 	/**
 	 * Test JDI equals() and hashCode().
 	 */
-//	public void testJDIEquality() {
-//		StackFrame sameFrame = getFrame(RUN_FRAME_OFFSET);
-//		StackFrame otherFrame = getFrame(0);
-//
-//		// Not identical
-//		assertTrue("1", fFrame != sameFrame);
-//		// But equal
-//		assertTrue("2", fFrame.equals(sameFrame));
-//		assertTrue("3", fFrame.hashCode() == sameFrame.hashCode());
-//
-//		assertTrue("4", fFrame.equals(fFrame));
-//		assertTrue("5", fFrame.hashCode() == fFrame.hashCode());
-//
-//		assertTrue("6", !fFrame.equals(otherFrame));
-//
-//		assertTrue("7", !fFrame.equals(new Object()));
-//		assertTrue("8", !fFrame.equals(null));
-//	}
-//	/**
-//	 * Test JDI location().
-//	 */
-//	public void testJDILocation() {
-//		assertNotNull("1", fFrame.location());
-//	}
+	public void testJDIEquality() {
+		StackFrame sameFrame = getFrame(RUN_FRAME_OFFSET);
+		StackFrame otherFrame = getFrame(0);
+
+		// Not identical
+		assertTrue("1", fFrame != sameFrame);
+		// But equal
+		assertTrue("2", fFrame.equals(sameFrame));
+		assertTrue("3", fFrame.hashCode() == sameFrame.hashCode());
+
+		assertTrue("4", fFrame.equals(fFrame));
+		assertTrue("5", fFrame.hashCode() == fFrame.hashCode());
+
+		assertTrue("6", !fFrame.equals(otherFrame));
+
+		assertTrue("7", !fFrame.equals(new Object()));
+		assertTrue("8", !fFrame.equals(null));
+	}
+	/**
+	 * Test JDI location().
+	 */
+	public void testJDILocation() {
+		assertNotNull("1", fFrame.location());
+	}
 	/**
 	 * Test JDI setValue(LocalVariable, Value), getValue(LocalVariable) and
 	 * getValues(List).

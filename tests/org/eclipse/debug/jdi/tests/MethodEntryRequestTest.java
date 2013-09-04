@@ -92,7 +92,7 @@ public class MethodEntryRequestTest extends AbstractJDITest {
 	 */
 	public void testJDIWithClassFilter1() {
 		MethodEntryRequest request = getMethodEntryRequest();
-		ClassType clazz = getClass("java.io.PrintStream");
+		ClassType clazz = getClass("gov.nasa.jpf.ConsoleOutputStream");
 		request.addClassFilter(clazz);
 
 		Event e = triggerAndWait(request, "BreakpointEvent", true);
@@ -110,7 +110,7 @@ public class MethodEntryRequestTest extends AbstractJDITest {
 	 */
 	public void testJDIWithClassFilter2() {
 		MethodEntryRequest request = getMethodEntryRequest();
-		request.addClassFilter("java.io.PrintStream");
+		request.addClassFilter("gov.nasa.jpf.ConsoleOutputStream");
 
 		Event e = triggerAndWait(request, "BreakpointEvent", true);
 		assertEquals(request, e.request());
@@ -118,7 +118,7 @@ public class MethodEntryRequestTest extends AbstractJDITest {
 		MethodEntryEvent event = (MethodEntryEvent) e;
 		Method m = event.method();
 		ReferenceType r = m.location().declaringType();
-		assertEquals("java.io.PrintStream", r.name());
+		assertEquals("gov.nasa.jpf.ConsoleOutputStream", r.name());
 		fVM.eventRequestManager().deleteEventRequest(request);
 	}
 

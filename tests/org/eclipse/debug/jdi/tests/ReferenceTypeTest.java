@@ -23,24 +23,19 @@ import com.sun.jdi.ObjectReference;
 import com.sun.jdi.ReferenceType;
 
 /**
- * Tests for JDI com.sun.jdi.ReferenceType
- * and JDWP Type command set.
+ * Tests for JDI com.sun.jdi.ReferenceType and JDWP Type command set.
  */
 public class ReferenceTypeTest extends AbstractJDITest {
 
 	private List<ReferenceType> fTypes = new LinkedList<ReferenceType>();
 
 	// These must match what is done in localSetUp
-	private boolean[] fSystemClassLoader = { true, true, false, false };
+	private boolean[] fSystemClassLoader = { true, true, true, true };
 	private boolean[] fHasMethods = { true, false, true, true };
 	private boolean[] fIsAbstract = { false, false, false, true };
 	private boolean[] fIsFinal = { false, true, false, false };
 	private boolean[] fIsStatic = { false, false, false, false };
-	private String[] fTypeName =
-		{
-			"java.lang.Object",
-			"java.lang.String[]",
-			"org.eclipse.debug.jdi.tests.program.MainClass",
+	private String[] fTypeName = { "java.lang.Object", "java.lang.String[]", "org.eclipse.debug.jdi.tests.program.MainClass",
 			"org.eclipse.debug.jdi.tests.program.Printable" };
 	private int fObjectIndex = 0;
 	private int fMainClassIndex = 2;
@@ -51,6 +46,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	public ReferenceTypeTest() {
 		super();
 	}
+
 	/**
 	 * Init the fields that are used by this test only.
 	 */
@@ -62,8 +58,10 @@ public class ReferenceTypeTest extends AbstractJDITest {
 		fTypes.add(getMainClass());
 		fTypes.add(getInterfaceType());
 	}
+
 	/**
 	 * Run all tests and output to standard output.
+	 * 
 	 * @param args
 	 */
 	public static void main(java.lang.String[] args) {
@@ -83,6 +81,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 				assertTrue("1." + type.name() + "." + i++, all.next() instanceof Field);
 		}
 	}
+
 	/**
 	 * Test JDI allMethods().
 	 */
@@ -96,6 +95,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 				assertTrue("1." + type.name() + "." + i++, all.next() instanceof Method);
 		}
 	}
+
 	/**
 	 * Test JDI classLoader() and JDWP 'Type - Get class loader'.
 	 */
@@ -106,6 +106,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 			assertTrue("1." + i, (classLoader == null) == fSystemClassLoader[i]);
 		}
 	}
+
 	/**
 	 * Test JDI classObject().
 	 */
@@ -116,12 +117,12 @@ public class ReferenceTypeTest extends AbstractJDITest {
 			assertTrue(type.name(), type.classObject() != null);
 		}
 	}
+
 	/**
 	 * Test JDI equals() and hashCode().
 	 */
 	public void testJDIEquality() {
-		ReferenceType other =
-			fVM.classesByName("java.lang.String").get(0);
+		ReferenceType other = fVM.classesByName("java.lang.String").get(0);
 		ListIterator<ReferenceType> iterator = fTypes.listIterator();
 		while (iterator.hasNext()) {
 			ReferenceType type = iterator.next();
@@ -133,6 +134,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 			assertTrue("1." + type.name() + ".6", type.hashCode() != other.hashCode());
 		}
 	}
+
 	/**
 	 * Test JDI failedToInitialize().
 	 */
@@ -143,6 +145,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 			assertTrue("1." + type.name(), !type.failedToInitialize());
 		}
 	}
+
 	/**
 	 * Test JDI fieldByName(String).
 	 */
@@ -152,6 +155,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 		Field field = type.fieldByName("fObject");
 		assertTrue("1." + type.name(), field != null);
 	}
+
 	/**
 	 * Test JDI fields() and JDWP 'Type - Get Fields'.
 	 */
@@ -162,9 +166,10 @@ public class ReferenceTypeTest extends AbstractJDITest {
 			Iterator<?> fields = type.fields().iterator();
 			int i = 0;
 			while (fields.hasNext())
-				assertTrue("1." + i++ +"." + type.name(), fields.next() instanceof Field);
+				assertTrue("1." + i++ + "." + type.name(), fields.next() instanceof Field);
 		}
 	}
+
 	/**
 	 * Test JDI getValue(Field) and JDWP 'Type - Get Fields Values'.
 	 */
@@ -175,6 +180,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 		assertTrue("1." + type.name(), field != null);
 		assertTrue("2." + type.name(), type.getValue(field) instanceof IntegerValue);
 	}
+
 	/**
 	 * Test JDI getValues(List) and JDWP 'Type - Get Fields Values'.
 	 */
@@ -203,6 +209,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 		// Ensure it is an integer value
 		assertTrue("2." + type.name(), values.get(field) instanceof IntegerValue);
 	}
+
 	/**
 	 * Test JDI isAbstract().
 	 */
@@ -216,6 +223,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 				assertTrue("2." + type.name(), !type.isAbstract());
 		}
 	}
+
 	/**
 	 * Test JDI isFinal().
 	 */
@@ -225,6 +233,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 			assertTrue("1." + i, type.isFinal() == fIsFinal[i]);
 		}
 	}
+
 	/**
 	 * Test JDI isInitialized().
 	 */
@@ -235,6 +244,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 			assertTrue("1." + type.name(), type.isInitialized());
 		}
 	}
+
 	/**
 	 * Test JDI isPrepared().
 	 */
@@ -245,6 +255,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 			assertTrue("1." + type.name(), type.isPrepared());
 		}
 	}
+
 	/**
 	 * Test JDI isStatic().
 	 */
@@ -255,6 +266,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 			assertTrue("1." + type.name(), !type.isStatic());
 		}
 	}
+
 	/**
 	 * Test JDI isVerified().
 	 */
@@ -266,6 +278,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 			}
 		}
 	}
+
 	/**
 	 * Test JDI methods() and JDWP 'Type - Get Methods'.
 	 */
@@ -276,6 +289,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 			assertTrue("" + i, (methods.size() != 0) == fHasMethods[i]);
 		}
 	}
+
 	/**
 	 * Test JDI methodsByName(String) and methodsByName(String, String).
 	 */
@@ -297,9 +311,9 @@ public class ReferenceTypeTest extends AbstractJDITest {
 			assertEquals("4", 0, type.methodsByName("fraz", "()Z").size());
 		}
 	}
+
 	/**
-	 * Test JDI isAbstract(), isFinal() and isStatic() 
-	 * and JDWP 'Type - Get modifiers'.
+	 * Test JDI isAbstract(), isFinal() and isStatic() and JDWP 'Type - Get modifiers'.
 	 */
 	public void testJDIModifiers() {
 		for (int i = 0; i < fTypes.size(); ++i) {
@@ -312,6 +326,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 			assertTrue("3." + i, type.isStatic() == fIsStatic[i]);
 		}
 	}
+
 	/**
 	 * Test JDI name() and JDWP 'Type - Get signature'.
 	 */
@@ -321,6 +336,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 			assertEquals("" + i, type.name(), fTypeName[i]);
 		}
 	}
+
 	/**
 	 * Test JDI nestedTypes().
 	 */
@@ -332,6 +348,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 		assertEquals("2." + type.name(), 1, nestedTypes.size());
 		assertTrue("3." + type.name(), nestedTypes.get(0) instanceof ReferenceType);
 	}
+
 	/**
 	 * Test JDI visibleFields().
 	 */
@@ -347,6 +364,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 			}
 		}
 	}
+
 	/**
 	 * Test JDI visibleMethods().
 	 */

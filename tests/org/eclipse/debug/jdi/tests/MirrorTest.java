@@ -52,7 +52,6 @@ public class MirrorTest extends AbstractJDITest {
 		fMirrors.add(getBreakpointRequest()); // BreakpointRequest
 		fMirrors.add(fVM.mirrorOf((byte) 1)); // ByteValue
 		fMirrors.add(fVM.mirrorOf('1')); // CharValue
-		fMirrors.add(getClassLoaderReference()); // ClassLoaderReference
 		fMirrors.add(getMainClass()); // ClassType
 		fMirrors.add(fVM.mirrorOf(12345.6789)); // DoubleValue
 		fMirrors.add(fVM.eventRequestManager()); // EventRequestManager
@@ -126,6 +125,7 @@ public class MirrorTest extends AbstractJDITest {
 	public void testJDIVirtualMachine() {
 		for (int i = 0; i < fMirrors.size(); i++) {
 			Mirror mirror = fMirrors.get(i);
+			System.out.println("I: " + i + " mirror: " + mirror);
 			assertEquals(Integer.toString(i), fVM, mirror.virtualMachine());
 		}
 	}
