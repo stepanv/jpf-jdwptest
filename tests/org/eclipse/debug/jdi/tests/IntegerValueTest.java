@@ -11,6 +11,9 @@
 
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import com.sun.jdi.IntegerValue;
 
 /**
@@ -33,13 +36,7 @@ public class IntegerValueTest extends AbstractJDITest {
 		// Get int value for 12345
 		fValue = fVM.mirrorOf(12345);
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new IntegerValueTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI equals() and hashCode().

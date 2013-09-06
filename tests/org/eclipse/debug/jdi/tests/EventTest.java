@@ -11,6 +11,8 @@
 
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -86,13 +88,7 @@ public class EventTest extends AbstractJDITest {
 		// Set the value of the "fBool" field back to its original value
 		resetField();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new EventTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI request().

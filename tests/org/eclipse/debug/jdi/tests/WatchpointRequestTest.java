@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+
 import com.sun.jdi.request.WatchpointRequest;
 
 /**
@@ -46,13 +48,7 @@ public class WatchpointRequestTest extends AbstractJDITest {
 		fVM.eventRequestManager().deleteEventRequest(
 			fModificationWatchpointRequest);
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new WatchpointRequestTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI field().

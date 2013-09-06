@@ -10,12 +10,13 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
-import java.util.Vector;
-
-import junit.framework.Test;
 
 import com.sun.jdi.BooleanValue;
 import com.sun.jdi.ByteValue;
@@ -51,13 +52,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	@Override
 	public void localSetUp() {
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new VirtualMachineTest().runSuite(args);
-	}
+
 
 	/**
 	 * Don't start the program yet, so that the testNotStarted* tests can run before.
@@ -74,42 +69,6 @@ public class VirtualMachineTest extends AbstractJDITest {
 	@Override
 	public void startProgram() {
 		super.startProgram();
-	}
-	/**
-	 * Returns all tests 
-	 */
-	@Override
-	protected Test suite() {
-		JDITestSuite suite = new JDITestSuite(this);
-
-		// Tests that run before the program is started
-		Vector<?> testNames = getAllMatchingTests("testNotStarted");
-		Iterator<?> iterator = testNames.iterator();
-		while (iterator.hasNext()) {
-			String name = (String) iterator.next();
-			suite.addTest(new JDITestCase(this, name));
-		}
-
-		// The method that starts the program
-		suite.addTest(new JDITestCase(this, "startProgram"));
-
-		// Tests that run after the program has started
-		testNames = getAllMatchingTests("testStarted");
-		iterator = testNames.iterator();
-		while (iterator.hasNext()) {
-			String name = (String) iterator.next();
-			suite.addTest(new JDITestCase(this, name));
-		}
-
-		// All other tests
-		testNames = getAllMatchingTests("testJDI");
-		iterator = testNames.iterator();
-		while (iterator.hasNext()) {
-			String name = (String) iterator.next();
-			suite.addTest(new JDITestCase(this, name));
-		}
-
-		return suite;
 	}
 	/**
 	 * Test JDI canGetBytecodes().

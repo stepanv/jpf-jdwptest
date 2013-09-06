@@ -11,6 +11,9 @@
 
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -39,13 +42,7 @@ public class InterfaceTypeTest extends AbstractJDITest {
 		// Get interface type "org.eclipse.debug.jdi.tests.program.Printable"
 		fType = getInterfaceType();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new InterfaceTypeTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI allFields().

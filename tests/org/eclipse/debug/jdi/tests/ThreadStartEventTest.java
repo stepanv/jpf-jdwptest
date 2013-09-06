@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+
 import com.sun.jdi.event.ThreadStartEvent;
 
 /**
@@ -50,13 +52,7 @@ public class ThreadStartEventTest extends AbstractJDITest {
 		// The test has resumed the test thread, so suspend it
 		waitUntilReady();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new ThreadStartEventTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI thread().

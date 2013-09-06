@@ -11,6 +11,9 @@
 
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import com.sun.jdi.AbsentInformationException;
 import com.sun.jdi.ClassNotLoadedException;
 import com.sun.jdi.LocalVariable;
@@ -38,13 +41,7 @@ public class LocalVariableTest extends AbstractJDITest {
 		// Get local variable "t" in the frame running MainClass.run()
 		fVar = getLocalVariable();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new LocalVariableTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI equals() and hashCode().

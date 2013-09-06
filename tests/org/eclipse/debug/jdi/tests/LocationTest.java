@@ -10,6 +10,9 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import com.sun.jdi.AbsentInformationException;
 import com.sun.jdi.Location;
 import com.sun.jdi.Method;
@@ -40,13 +43,7 @@ public class LocationTest extends AbstractJDITest {
 		fLocation = getLocation();
 
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new LocationTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI codeIndex().

@@ -10,6 +10,10 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import com.sun.jdi.ArrayType;
 import com.sun.jdi.ReferenceType;
 

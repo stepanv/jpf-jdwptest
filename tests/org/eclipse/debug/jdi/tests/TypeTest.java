@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+
 import com.sun.jdi.Type;
 
 /**
@@ -92,13 +94,7 @@ public class TypeTest extends AbstractJDITest {
 		fBooleanDoubleArrayType = getBooleanDoubleArrayType();
 
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new TypeTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI signature().

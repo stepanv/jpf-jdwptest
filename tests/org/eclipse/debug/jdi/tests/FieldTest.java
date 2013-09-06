@@ -11,6 +11,9 @@
 
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import com.sun.jdi.ClassNotLoadedException;
 import com.sun.jdi.Field;
 
@@ -34,13 +37,7 @@ public class FieldTest extends AbstractJDITest {
 		// Get static field "fObject"
 		fField = getField();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new FieldTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI equals() and hashCode().

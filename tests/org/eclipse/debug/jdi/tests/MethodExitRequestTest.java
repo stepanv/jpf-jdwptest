@@ -10,6 +10,9 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import com.sun.jdi.ClassType;
 import com.sun.jdi.Method;
 import com.sun.jdi.ReferenceType;
@@ -38,13 +41,7 @@ public class MethodExitRequestTest extends AbstractJDITest {
 		waitUntilReady();
 	}
 
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new MethodExitRequestTest().runSuite(args);
-	}
+
 
 
 	/**

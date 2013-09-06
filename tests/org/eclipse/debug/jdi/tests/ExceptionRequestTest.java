@@ -11,6 +11,8 @@
 
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertTrue;
+
 import com.sun.jdi.request.ExceptionRequest;
 
 /**
@@ -41,13 +43,7 @@ public class ExceptionRequestTest extends AbstractJDITest {
 		// Delete the exception request we created in this test
 		fVM.eventRequestManager().deleteEventRequest(fRequest);
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new ExceptionRequestTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI exception().

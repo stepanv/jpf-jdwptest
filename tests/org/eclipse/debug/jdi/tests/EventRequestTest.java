@@ -11,6 +11,8 @@
 
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -59,13 +61,7 @@ public class EventRequestTest extends AbstractJDITest {
 		// Delete the requests we created in this test
 		fVM.eventRequestManager().deleteEventRequests(fRequests);
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new EventRequestTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI disable(), enable(), isEnable() and setEnable(boolean).

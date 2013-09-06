@@ -10,6 +10,10 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.util.List;
 
 import com.sun.jdi.AbsentInformationException;
@@ -44,13 +48,7 @@ public class MethodTest extends AbstractJDITest {
 				"useLocalVars",
 				"(Ljava/lang/Thread;Lorg/eclipse/debug/jdi/tests/program/MainClass;)V");
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new MethodTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI arguments() and JDWP 'Method - Get variable table'.

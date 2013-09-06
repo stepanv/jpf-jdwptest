@@ -11,8 +11,13 @@
 
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.List;
 import java.util.ListIterator;
+
+import org.junit.Test;
 
 import com.sun.jdi.ArrayReference;
 import com.sun.jdi.ClassNotLoadedException;
@@ -45,18 +50,13 @@ public class ArrayReferenceTest extends AbstractJDITest {
 		fArray = getObjectArrayReference();
 		fDoubleArray = getNonEmptyDoubleArrayReference();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new ArrayReferenceTest().runSuite(args);
-	}
+
 	/**
 	 * Test JDI getValue(int), getValues(), getValues(int,int)
 	 * setValue(Value,int), setValues(List) and setValues(int,List,int,int),
 	 * and JDWP 'Array - Get values' and 'Array - Set values'.
 	 */
+	@Test
 	public void testJDIGetSetDoubleValue() {
 		double one = 1.0;
 		double pi = 3.1415926535;
@@ -146,6 +146,7 @@ public class ArrayReferenceTest extends AbstractJDITest {
 	 * setValue(Value,int), setValues(List) and setValues(int,List,int,int),
 	 * and JDWP 'Array - Get values' and 'Array - Set values'.
 	 */
+	@Test
 	public void testJDIGetSetValue() {
 		// getValue(int)
 		StringReference string = (StringReference) fArray.getValue(0);
@@ -239,6 +240,7 @@ public class ArrayReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI length() and JDWP 'Array - Get length'.
 	 */
+	@Test
 	public void testJDILength() {
 		int length = fArray.length();
 		assertEquals("1", 3, length);

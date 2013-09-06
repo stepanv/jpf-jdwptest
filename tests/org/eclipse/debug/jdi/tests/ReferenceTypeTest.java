@@ -10,6 +10,9 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -57,15 +60,6 @@ public class ReferenceTypeTest extends AbstractJDITest {
 		fTypes.add(getArrayType());
 		fTypes.add(getMainClass());
 		fTypes.add(getInterfaceType());
-	}
-
-	/**
-	 * Run all tests and output to standard output.
-	 * 
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new ReferenceTypeTest().runSuite(args);
 	}
 
 	/**

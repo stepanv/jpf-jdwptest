@@ -11,6 +11,9 @@
 
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -52,13 +55,7 @@ public class ClassTypeTest extends AbstractJDITest {
 		// Get the type org.eclipse.debug.jdi.tests.program.MainClass
 		fType = getMainClass();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new ClassTypeTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI allFields().

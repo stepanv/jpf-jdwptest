@@ -10,6 +10,9 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import com.sun.jdi.LongValue;
 
 /**
@@ -32,13 +35,7 @@ public class LongValueTest extends AbstractJDITest {
 		// Get long value for 123456789l
 		fValue = fVM.mirrorOf(123456789l);
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new LongValueTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI equals() and hashCode().

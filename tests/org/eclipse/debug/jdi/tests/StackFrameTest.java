@@ -10,6 +10,10 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -41,13 +45,7 @@ public class StackFrameTest extends AbstractJDITest {
 		fFrame = getFrame(RUN_FRAME_OFFSET);
 
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new StackFrameTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI equals() and hashCode().

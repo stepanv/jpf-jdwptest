@@ -11,6 +11,9 @@
 
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import com.sun.jdi.IncompatibleThreadStateException;
 import com.sun.jdi.Location;
 import com.sun.jdi.ReferenceType;
@@ -87,13 +90,7 @@ public class HotCodeReplacementTest extends AbstractJDITest {
 	public void localSetUp() {
 		waitUntilReady();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		new HotCodeReplacementTest().runSuite(args);
-	}
+
 
 	private void reenterOnExit(ThreadReference thread) {
 		// Get top frame's location

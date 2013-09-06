@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertTrue;
+
 import com.sun.jdi.VMDisconnectedException;
 
 /**
@@ -39,13 +41,7 @@ public class VirtualMachineExitTest extends AbstractJDITest {
 		// Start up again
 		launchTargetAndStartProgram();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		new VirtualMachineExitTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI exit().

@@ -11,6 +11,9 @@
 
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import com.sun.jdi.PrimitiveValue;
 
 /**
@@ -47,13 +50,7 @@ public class PrimitiveValueTest extends AbstractJDITest {
 		fLong = fVM.mirrorOf(123456789l);
 		fShort = fVM.mirrorOf((short) 12345);
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new PrimitiveValueTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI booleanValue().

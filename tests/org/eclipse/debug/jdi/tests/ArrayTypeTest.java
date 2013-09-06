@@ -11,6 +11,9 @@
 
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import com.sun.jdi.ArrayReference;
 import com.sun.jdi.ArrayType;
 import com.sun.jdi.ClassNotLoadedException;
@@ -39,13 +42,7 @@ public class ArrayTypeTest extends AbstractJDITest {
 		// Get array type
 		fType = getArrayType();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new ArrayTypeTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI componentSignature().

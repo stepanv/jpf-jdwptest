@@ -11,6 +11,8 @@
 
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.List;
 
 import com.sun.jdi.Type;
@@ -33,13 +35,7 @@ public class ClassesByNameTest extends AbstractJDITest {
 	public void localSetUp() {
 
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new ClassesByNameTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test that there is a class object for 'int[]'

@@ -11,6 +11,9 @@
 
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
@@ -95,13 +98,7 @@ public class LocatableTest extends AbstractJDITest {
 		// Set the value of the "fBool" field back to its original value
 		resetField();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new LocatableTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI location()

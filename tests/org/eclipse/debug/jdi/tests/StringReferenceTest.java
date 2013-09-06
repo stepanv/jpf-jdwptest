@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+
 import com.sun.jdi.StringReference;
 
 /**
@@ -33,13 +35,7 @@ public class StringReferenceTest extends AbstractJDITest {
 		// Get static field "fString"
 		fString = getStringReference();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new StringReferenceTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI value() and JDWP 'String - Get value'.

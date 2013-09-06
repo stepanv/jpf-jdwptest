@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+
 import com.sun.jdi.Value;
 
 /**
@@ -51,13 +53,7 @@ public class ValueTest extends AbstractJDITest {
 		fArray = getObjectArrayReference();
 		fObject = getObjectReference();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new ValueTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI type().

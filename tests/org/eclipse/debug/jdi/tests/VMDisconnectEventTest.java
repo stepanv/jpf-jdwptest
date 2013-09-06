@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertTrue;
+
 import com.sun.jdi.event.VMDisconnectEvent;
 
 /**
@@ -53,13 +55,7 @@ public class VMDisconnectEventTest extends AbstractJDITest {
 		// Start up again
 		launchTargetAndStartProgram();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new VMDisconnectEventTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test that we received the event.

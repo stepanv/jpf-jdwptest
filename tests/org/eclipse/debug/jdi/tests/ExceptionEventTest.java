@@ -11,6 +11,9 @@
 
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import com.sun.jdi.ReferenceType;
 import com.sun.jdi.event.ExceptionEvent;
 
@@ -48,13 +51,7 @@ public class ExceptionEventTest extends AbstractJDITest {
 		// The test has resumed the test thread, so suspend it
 		waitUntilReady();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new ExceptionEventTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI catchLocation().

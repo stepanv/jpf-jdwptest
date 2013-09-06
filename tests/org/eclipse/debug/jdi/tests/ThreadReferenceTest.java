@@ -10,6 +10,10 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.util.List;
 
 import com.sun.jdi.ClassNotLoadedException;
@@ -46,13 +50,7 @@ public class ThreadReferenceTest extends AbstractJDITest {
 		// Get thread
 		fThread = getThread();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new ThreadReferenceTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI currentContendedMonitor().

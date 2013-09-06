@@ -10,15 +10,14 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
-import java.util.Vector;
-
-import junit.framework.Test;
 
 import com.sun.jdi.ClassNotLoadedException;
 import com.sun.jdi.ClassType;
@@ -69,28 +68,7 @@ public class ObjectReferenceTest extends AbstractJDITest {
 		// thread is suspended at the right location
 		waitUntilReady();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new ObjectReferenceTest().runSuite(args);
-	}
 
-	/**
-	 * Returns all tests 
-	 */
-	@Override
-	protected Test suite() {
-		JDITestSuite suite = (JDITestSuite) super.suite();
-		Vector<?> testNames = getAllMatchingTests("testLast");
-		Iterator<?> iterator = testNames.iterator();
-		while (iterator.hasNext()) {
-			String name = (String) iterator.next();
-			suite.addTest(new JDITestCase(this, name));
-		}
-		return suite;
-	}
 	/**
 	 * Test JDI disableCollection(). enableCollection() and isCollected().
 	 */

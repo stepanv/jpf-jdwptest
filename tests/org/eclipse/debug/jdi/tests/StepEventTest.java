@@ -10,6 +10,9 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import com.sun.jdi.ClassType;
 import com.sun.jdi.ThreadReference;
 import com.sun.jdi.event.StepEvent;
@@ -44,13 +47,7 @@ public class StepEventTest extends AbstractJDITest {
 		// The test has resumed the test thread, so suspend it
 		waitUntilReady();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new StepEventTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI thread().

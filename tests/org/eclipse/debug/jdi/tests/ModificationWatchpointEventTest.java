@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+
 import com.sun.jdi.StringReference;
 import com.sun.jdi.event.ModificationWatchpointEvent;
 import com.sun.jdi.request.WatchpointRequest;
@@ -55,13 +57,7 @@ public class ModificationWatchpointEventTest extends AbstractJDITest {
 		// Set the value of the "fString" field back to its original value
 		resetStaticField();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new ModificationWatchpointEventTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI valueToBe().

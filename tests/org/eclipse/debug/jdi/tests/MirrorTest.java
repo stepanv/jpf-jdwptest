@@ -10,6 +10,9 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
@@ -102,13 +105,7 @@ public class MirrorTest extends AbstractJDITest {
 					(ModificationWatchpointRequest) mirror);
 		}
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new MirrorTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI toString().

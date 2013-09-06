@@ -10,6 +10,9 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 
 import com.sun.jdi.BooleanValue;
@@ -88,13 +91,7 @@ public class WatchpointEventTest extends AbstractJDITest {
 		// Set the value of the "fBool" field back to its original value
 		resetField();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new WatchpointEventTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI field().

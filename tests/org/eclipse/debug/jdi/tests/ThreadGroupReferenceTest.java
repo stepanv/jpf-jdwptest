@@ -10,6 +10,10 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.util.List;
 import java.util.ListIterator;
 
@@ -48,13 +52,7 @@ public class ThreadGroupReferenceTest extends AbstractJDITest {
 		// The test has resumed the thread group, and so the test thread, so suspend it
 		waitUntilReady();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new ThreadGroupReferenceTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI name() and JDWP 'ThreadGroup - Get name'.

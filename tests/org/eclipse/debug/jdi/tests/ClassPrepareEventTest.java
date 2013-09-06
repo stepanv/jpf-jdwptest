@@ -11,6 +11,8 @@
 
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+
 import com.sun.jdi.event.ClassPrepareEvent;
 import com.sun.jdi.request.ClassPrepareRequest;
 
@@ -49,13 +51,7 @@ public class ClassPrepareEventTest extends AbstractJDITest {
 		// Delete the class prepare request
 		fVM.eventRequestManager().deleteEventRequest(fRequest);
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new ClassPrepareEventTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI referenceType().

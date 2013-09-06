@@ -11,6 +11,10 @@
 
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+
 import com.sun.jdi.Accessible;
 
 /**
@@ -19,12 +23,14 @@ import com.sun.jdi.Accessible;
 public class AccessibleTest extends AbstractJDITest {
 
 	private Accessible fArrayType, fClassType, fInterfaceType, fField, fMethod;
+
 	/**
 	 * Creates a new test.
 	 */
 	public AccessibleTest() {
 		super();
 	}
+
 	/**
 	 * Init the fields that are used by this test only.
 	 */
@@ -41,46 +47,46 @@ public class AccessibleTest extends AbstractJDITest {
 		fField = getField();
 		fMethod = getMethod();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new AccessibleTest().runSuite(args);
-	}
-	
+
 	/**
 	 * Test JDI isPackagePrivate().
 	 */
-	public void testJDIIsPackagePrivate() {
+	@Test
+	public void isPackagePrivate() {
 		assertTrue("1", !fArrayType.isPackagePrivate());
 		assertTrue("2", !fClassType.isPackagePrivate());
 		assertTrue("3", !fInterfaceType.isPackagePrivate());
 		assertTrue("4", !fField.isPackagePrivate());
 		assertTrue("5", !fMethod.isPackagePrivate());
 	}
+
 	/**
 	 * Test JDI isPrivate().
 	 */
-	public void testJDIIsPrivate() {
+	@Test
+	public void isPrivate() {
 		assertTrue("1", !fField.isPrivate());
 		assertTrue("2", !fMethod.isPrivate());
 
 		// NB: isPrivate() is undefined for a type
 	}
+
 	/**
 	 * Test JDI isProtected().
 	 */
-	public void testJDIIsProtected() {
+	@Test
+	public void isProtected() {
 		assertTrue("1", !fField.isProtected());
 		assertTrue("2", !fMethod.isProtected());
 
 		// NB: isProtected() is undefined for a type
 	}
+
 	/**
 	 * Test JDI isPublic().
 	 */
-	public void testJDIIsPublic() {
+	@Test
+	public void isPublic() {
 		assertTrue("1", fArrayType.isPublic());
 		assertTrue("2", fClassType.isPublic());
 		assertTrue("3", fInterfaceType.isPublic());

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertTrue;
+
 import com.sun.jdi.VMDisconnectedException;
 
 /**
@@ -28,13 +30,7 @@ public class VMDisposeTest extends AbstractJDITest {
 	@Override
 	public void localSetUp() {
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new VMDisposeTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test that we received the event.

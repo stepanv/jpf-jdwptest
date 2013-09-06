@@ -11,6 +11,8 @@
 
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+
 import com.sun.jdi.request.BreakpointRequest;
 
 /**
@@ -41,13 +43,7 @@ public class BreakpointRequestTest extends AbstractJDITest {
 		// Delete the breakpoint request we created in this test
 		fVM.eventRequestManager().deleteEventRequest(fRequest);
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new BreakpointRequestTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI location().

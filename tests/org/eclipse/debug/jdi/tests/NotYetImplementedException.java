@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+
 /**
  * Specialized exception class for testing
  */

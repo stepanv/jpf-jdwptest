@@ -10,20 +10,17 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertTrue;
 import gov.nasa.jpf.jdwp.JDWPRunner;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.ServerSocket;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.Vector;
-
-import junit.framework.Test;
-import junit.framework.TestCase;
 
 import org.eclipse.debug.jdi.tests.program.MainClass;
 import org.eclipse.jdi.Bootstrap;
@@ -74,7 +71,7 @@ import com.sun.jdi.request.StepRequest;
  *   -launcher SunVMLauncher -address c:\jdk1.2.2\ -cp d:\target
  *   -launcher J9VMLauncher -address d:\ive\ -cp d:\target
  */
-public abstract class AbstractJDITest extends TestCase {
+public abstract class AbstractJDITest {
 	static int TIMEOUT = 10000; //ms
 	static protected int fBackEndPort = 9900;
 	// We want subsequent connections to use different ports.
@@ -1030,20 +1027,6 @@ public abstract class AbstractJDITest extends TestCase {
 		}
 	}
 	/**
-	 * Runs this test's suite with the given arguments.
-	 */
-	protected void runSuite(String[] args) {
-		// Check args
-		if (!parseArgs(args))
-			return;
-
-		// Run test
-		System.out.println(new java.util.Date());
-		//System.out.println("Begin testing " + getName() + "...");
-		junit.textui.TestRunner.run(suite());
-		//System.out.println("Done testing " + getName() + ".");
-	}
-	/**
 	 * Sets the 'in control of the VM' flag for this test.
 	 */
 	public void setInControl(boolean inControl) {
@@ -1267,19 +1250,6 @@ public abstract class AbstractJDITest extends TestCase {
 		waitUntilReady();
 	}
 	/**
-	 * Returns all tests 
-	 */
-	protected Test suite() {
-		JDITestSuite suite = new JDITestSuite(this);
-		Vector<String> testNames = getAllMatchingTests( getTestPrefix() );
-		Iterator<String> iterator = testNames.iterator();
-		while (iterator.hasNext()) {
-			String name = iterator.next();
-			suite.addTest(new JDITestCase(this, name));
-		}
-		return suite;
-	}
-	/**
 	 * Undo the initialization of the test.
 	 */
 	@After
@@ -1372,10 +1342,6 @@ public abstract class AbstractJDITest extends TestCase {
 
 		boolean needResume = false;
 		ThreadReference thread = getThread();
-		int suspendCount = thread.suspendCount();
-		if (suspendCount > 0) {
-			needResume = true;
-		}
 		
 		Value value = null;
 		value = fVM.mirrorOf(eventType);
@@ -1387,15 +1353,10 @@ public abstract class AbstractJDITest extends TestCase {
 			assertTrue("3", false);
 		}
 
-//		if (needResume) {
-			// Resume the test thread
-			thread = getThread();
-			suspendCount = thread.suspendCount();
-			for (int i = 0; i < suspendCount; i++)
-				thread.resume();
-//		} else {
-//			System.out.println("no resume");
-//		}
+		thread = getThread();
+		int suspendCount = thread.suspendCount();
+		for (int i = 0; i < suspendCount; i++)
+			thread.resume();
 	}
 	/**
 	 * Triggers a step event and waits for it to come in.

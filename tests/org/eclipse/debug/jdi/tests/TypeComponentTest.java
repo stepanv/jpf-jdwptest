@@ -10,6 +10,9 @@
  *******************************************************************************/
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import com.sun.jdi.ReferenceType;
 import com.sun.jdi.TypeComponent;
 
@@ -36,13 +39,7 @@ public class TypeComponentTest extends AbstractJDITest {
 		// Get method print(OutputStream)
 		fMethod = getMethod();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new TypeComponentTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI declaringType().

@@ -11,6 +11,9 @@
 
 package org.eclipse.debug.jdi.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.List;
 import java.util.ListIterator;
 
@@ -47,13 +50,7 @@ public class EventRequestManagerTest extends AbstractJDITest {
 		// Get the event request manager
 		fManager = fVM.eventRequestManager();
 	}
-	/**
-	 * Run all tests and output to standard output.
-	 * @param args
-	 */
-	public static void main(java.lang.String[] args) {
-		new EventRequestManagerTest().runSuite(args);
-	}
+
 
 	/**
 	 * Test JDI createAccessWatchpointRequest(Field), accessWatchpointRequests()
