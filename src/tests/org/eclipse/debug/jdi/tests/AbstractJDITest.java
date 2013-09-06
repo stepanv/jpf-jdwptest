@@ -1051,7 +1051,7 @@ public abstract class AbstractJDITest {
 
 		String javaCommand = "java -Xmx512m -Djdwp=transport=dt_socket,server=y,suspend=y,address=" + port + " -cp \""
 				+ System.getProperty("java.class.path") + "\" " + JDWPRunner.class.getName() + " -show +target=" + MainClass.class.getName()
-				+ " +classpath=+,bin";
+				+ " +classpath=+,build/tests";
 		String stdout = System.getProperty("java.io.tmpdir") + File.separator + "stdout.txt" + port + ".txt";
 		String stderr = System.getProperty("java.io.tmpdir") + File.separator + "stderr.txt" + port + ".txt";
 
