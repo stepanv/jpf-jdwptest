@@ -20,9 +20,12 @@ import java.util.Map;
 
 import org.junit.Test;
 
+import com.sun.jdi.AbsentInformationException;
 import com.sun.jdi.ClassNotLoadedException;
 import com.sun.jdi.InvalidTypeException;
 import com.sun.jdi.LocalVariable;
+import com.sun.jdi.ObjectReference;
+import com.sun.jdi.ReferenceType;
 import com.sun.jdi.StackFrame;
 import com.sun.jdi.ThreadReference;
 
@@ -121,56 +124,60 @@ public class StackFrameTest extends AbstractJDITest {
 		assertEquals("5", null, value);
 
 	}
-//	/**
-//	 * Test JDI thisObject().
-//	 */
-//	public void testJDIThisObject() {
-//		ObjectReference object = fFrame.thisObject();
-//		ReferenceType expected = getMainClass();
-//		ReferenceType referenceType = object.referenceType();
-//		assertEquals("1", expected, referenceType);
-//	}
-//	/**
-//	 * Test JDI thread().
-//	 */
-//	public void testJDIThread() {
-//		assertEquals("1", getThread(), fFrame.thread());
-//	}
-//	/**
-//	 * Test JDI visibleVariableByName(String).
-//	 */
-//	public void testJDIVisibleVariableByName() {
-//		LocalVariable var = null;
-//		try {
-//			var = fFrame.visibleVariableByName("t");
-//		} catch (AbsentInformationException e) {
-//			assertTrue("1", false);
-//		}
-//		assertEquals("2", getLocalVariable(), var);
-//		try {
-//			var = fFrame.visibleVariableByName("bogus");
-//		} catch (AbsentInformationException e) {
-//			assertTrue("3", false);
-//		}
-//		assertTrue("4", null == var);
-//	}
-//	/**
-//	 * Test JDI visibleVariables().
-//	 */
-//	public void testJDIVisibleVariables() {
-//		List<?> vars = null;
-//		try {
-//			vars = fFrame.visibleVariables();
-//		} catch (AbsentInformationException e) {
-//			assertTrue("1", false);
-//		}
-//		assertEquals("2", 2, vars.size());
-//
-//		LocalVariable var;
-//		int i = 0;
-//		do {
-//			var = (LocalVariable) vars.get(i++);
-//		} while (!var.name().equals("t"));
-//		assertEquals("3", getLocalVariable(), var);
-//	}
+	/**
+	 * Test JDI thisObject().
+	 */
+	@Test
+	public void testJDIThisObject() {
+		ObjectReference object = fFrame.thisObject();
+		ReferenceType expected = getMainClass();
+		ReferenceType referenceType = object.referenceType();
+		assertEquals("1", expected, referenceType);
+	}
+	/**
+	 * Test JDI thread().
+	 */
+	@Test
+	public void testJDIThread() {
+		assertEquals("1", getThread(), fFrame.thread());
+	}
+	/**
+	 * Test JDI visibleVariableByName(String).
+	 */
+	@Test
+	public void testJDIVisibleVariableByName() {
+		LocalVariable var = null;
+		try {
+			var = fFrame.visibleVariableByName("t");
+		} catch (AbsentInformationException e) {
+			assertTrue("1", false);
+		}
+		assertEquals("2", getLocalVariable(), var);
+		try {
+			var = fFrame.visibleVariableByName("bogus");
+		} catch (AbsentInformationException e) {
+			assertTrue("3", false);
+		}
+		assertTrue("4", null == var);
+	}
+	/**
+	 * Test JDI visibleVariables().
+	 */
+	@Test
+	public void testJDIVisibleVariables() {
+		List<?> vars = null;
+		try {
+			vars = fFrame.visibleVariables();
+		} catch (AbsentInformationException e) {
+			assertTrue("1", false);
+		}
+		assertEquals("2", 2, vars.size());
+
+		LocalVariable var;
+		int i = 0;
+		do {
+			var = (LocalVariable) vars.get(i++);
+		} while (!var.name().equals("t"));
+		assertEquals("3", getLocalVariable(), var);
+	}
 }
