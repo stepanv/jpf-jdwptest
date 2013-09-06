@@ -12,6 +12,8 @@ package org.eclipse.debug.jdi.tests;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
+
 import com.sun.jdi.event.ThreadStartEvent;
 
 /**
@@ -57,6 +59,7 @@ public class ThreadStartEventTest extends AbstractJDITest {
 	/**
 	 * Test JDI thread().
 	 */
+	@Test
 	public void testJDIThread() {
 		assertEquals("1", "Test Thread Start Event", fEvent.thread().name());
 	}

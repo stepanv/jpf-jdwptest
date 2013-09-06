@@ -13,6 +13,8 @@ package org.eclipse.debug.jdi.tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.ClassType;
 import com.sun.jdi.ThreadReference;
 import com.sun.jdi.event.StepEvent;
@@ -52,12 +54,14 @@ public class StepEventTest extends AbstractJDITest {
 	/**
 	 * Test JDI thread().
 	 */
+	@Test
 	public void testJDIThread() {
 		assertEquals("1", "Test Thread", fStepEvent.thread().name());
 	}
 	/**
 	 * Test all possible steps.
 	 */
+	@Test
 	public void testJDIVariousSteps() {
 		ThreadReference thread = getThread();
 		triggerStepAndWait(thread, StepRequest.STEP_MIN, StepRequest.STEP_INTO);
@@ -75,6 +79,7 @@ public class StepEventTest extends AbstractJDITest {
 	/**
 	 * Tests a step request with a specified class filter
 	 */
+	@Test
 	public void testJDIClassFilter1() {
 		// Request for step events
 		StepRequest request = getRequest();
@@ -109,6 +114,7 @@ public class StepEventTest extends AbstractJDITest {
 	/**
 	 * Retests a step request with a specified class filter
 	 */
+	@Test
 	public void testJDIClassFilter2() {
 		// Request for step events
 		StepRequest request = getRequest();
@@ -130,6 +136,7 @@ public class StepEventTest extends AbstractJDITest {
 	/**
 	 * Tests a step request with a specific exclusion filter
 	 */
+	@Test
 	public void testJDIClassExclusionFilter1() {
 		// Request for step events
 		StepRequest request = getRequest();
@@ -151,6 +158,7 @@ public class StepEventTest extends AbstractJDITest {
 	/**
 	 * Retests a step request with a specific exclusion filter
 	 */
+	@Test
 	public void testJDIClassExclusionFilter2() {
 		StepRequest request = getRequest();
 		request.addClassExclusionFilter("org.eclipse.*");

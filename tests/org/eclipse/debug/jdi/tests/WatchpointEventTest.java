@@ -15,6 +15,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
+import org.junit.Test;
+
 import com.sun.jdi.BooleanValue;
 import com.sun.jdi.StringReference;
 import com.sun.jdi.event.AccessWatchpointEvent;
@@ -96,6 +98,7 @@ public class WatchpointEventTest extends AbstractJDITest {
 	/**
 	 * Test JDI field().
 	 */
+	@Test
 	public void testJDIField() {
 		assertEquals("1", getField("fBool"), fAccessWatchpointEvent.field());
 		assertEquals(
@@ -110,6 +113,7 @@ public class WatchpointEventTest extends AbstractJDITest {
 	/**
 	 * Test JDI object().
 	 */
+	@Test
 	public void testJDIObject() {
 		assertEquals(
 			"1",
@@ -124,6 +128,7 @@ public class WatchpointEventTest extends AbstractJDITest {
 	/**
 	 * Test JDI valueCurrent().
 	 */
+	@Test
 	public void testJDIValueCurrent() {
 		assertTrue(
 			"1",

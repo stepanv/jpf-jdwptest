@@ -14,6 +14,8 @@ package org.eclipse.debug.jdi.tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.IncompatibleThreadStateException;
 import com.sun.jdi.Location;
 import com.sun.jdi.ReferenceType;
@@ -202,6 +204,7 @@ public class HotCodeReplacementTest extends AbstractJDITest {
 	 * . get step event
 	 * . get class file version for some classes
 	 */
+	@Test
 	public void testJDIUseCase1() {
 		// Get the suspended thread
 		ThreadReference thread = getThread();

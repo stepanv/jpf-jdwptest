@@ -14,6 +14,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.ArrayType;
 import com.sun.jdi.ReferenceType;
 
@@ -35,6 +37,7 @@ public class ConstantPoolTests extends AbstractJDITest {
 	 * test to see if we can get class file version info from a 1.6 VM, and 
 	 * that we cannot from a pre-1.6 VM
 	 */
+	@Test
 	public void testCanGetClassFileVersion() {
 		if(is16OrGreater()) {
 			assertTrue("Should have classfile version info", fVM.canGetClassFileVersion());
@@ -48,6 +51,7 @@ public class ConstantPoolTests extends AbstractJDITest {
 	 * test to make sure we can get constant pool information from a 1.6 VM, and
 	 * that we cannot get it from a pre-1.6 VM 
 	 */
+	@Test
 	public void testCanGetConstantPool() {
 		if(is16OrGreater()) {
 			assertTrue("Should have constant pool info", fVM.canGetConstantPool());
@@ -61,6 +65,7 @@ public class ConstantPoolTests extends AbstractJDITest {
 	 * test to make sure that if majorVersion is unsupported an UnsupportedOperationException is
 	 * thrown.
 	 */
+	@Test
 	public void testMajorVersionUnsupported() {
 		triggerAndWait(fVM.eventRequestManager().createClassPrepareRequest(), "refclassload", true);
 		fClass = getClass("org.eclipse.debug.jdi.tests.program.RefClass1");
@@ -86,6 +91,7 @@ public class ConstantPoolTests extends AbstractJDITest {
 	 * test to make sure that majorVersion returns 0 for an arrayType.
 	 * this test does not apply to non-16 VMs
 	 */
+	@Test
 	public void testMajorVersionArrayType() {
 		if(!fVM.canGetClassFileVersion()) {
 			return;
@@ -100,6 +106,7 @@ public class ConstantPoolTests extends AbstractJDITest {
 	 * test to make sure majorVerison works.
 	 * this test does not apply to non-1.6VMs 
 	 */
+	@Test
 	public void testMajorVersion() {
 		if(!fVM.canGetClassFileVersion()) {
 			return;
@@ -115,6 +122,7 @@ public class ConstantPoolTests extends AbstractJDITest {
 	 * test to make sure that if minorVersion is unsupported an UnsupportedIOperationException 
 	 * is thrown
 	 */
+	@Test
 	public void testMinorVersionUnsupported() {
 		triggerAndWait(fVM.eventRequestManager().createClassPrepareRequest(), "refclassload", true);
 		fClass = getClass("org.eclipse.debug.jdi.tests.program.RefClass1");
@@ -140,6 +148,7 @@ public class ConstantPoolTests extends AbstractJDITest {
 	 * test to make sure minorVerison works.
 	 * this test does not apply to non-1.6VMs 
 	 */
+	@Test
 	public void testMinorVersion() {
 		if(!fVM.canGetClassFileVersion()) {
 			return;
@@ -155,6 +164,7 @@ public class ConstantPoolTests extends AbstractJDITest {
 	 * test to make sure that if constantPoolCount is unsupported an UnsupportedIOperationException 
 	 * is thrown
 	 */
+	@Test
 	public void testConstantPoolCountSupported() {
 		triggerAndWait(fVM.eventRequestManager().createClassPrepareRequest(), "refclassload", true);
 		fClass = getClass("org.eclipse.debug.jdi.tests.program.RefClass1");
@@ -180,6 +190,7 @@ public class ConstantPoolTests extends AbstractJDITest {
 	 * test to ensure the constant pool count is working correctly
 	 * this test does not apply to non-1.6 VMs
 	 */
+	@Test
 	public void testConstantPoolCount() {
 		if(!fVM.canGetConstantPool()) {
 			return;
@@ -196,6 +207,7 @@ public class ConstantPoolTests extends AbstractJDITest {
 	 * test to make sure that if constantPool is unsupported an UnsupportedIOperationException 
 	 * is thrown
 	 */
+	@Test
 	public void testConstantPoolSupported() {
 		triggerAndWait(fVM.eventRequestManager().createClassPrepareRequest(), "refclassload", true);
 		fClass = getClass("org.eclipse.debug.jdi.tests.program.RefClass1");
@@ -221,6 +233,7 @@ public class ConstantPoolTests extends AbstractJDITest {
 	 * test to ensure the constant pool is working correctly
 	 * this test does not apply to non-1.6 VMs
 	 */
+	@Test
 	public void testConstantPool() {
 		if(!fVM.canGetConstantPool()) {
 			return;

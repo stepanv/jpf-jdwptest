@@ -15,6 +15,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import org.junit.Test;
+
 import com.sun.jdi.Type;
 
 /**
@@ -40,6 +42,7 @@ public class ClassesByNameTest extends AbstractJDITest {
 	/**
 	 * Test that there is a class object for 'int[]'
 	 */
+	@Test
 	public void testJDIIntArray() {
 		List<?> classes = fVM.classesByName("int[]");
 		assertTrue(
@@ -50,6 +53,7 @@ public class ClassesByNameTest extends AbstractJDITest {
 	/**
 	 * Test that there is a class object for 'int[][]'
 	 */
+	@Test
 	public void testJDIIntDoubleArray() {
 		List<?> classes = fVM.classesByName("int[][]");
 		assertTrue(
@@ -61,6 +65,7 @@ public class ClassesByNameTest extends AbstractJDITest {
 	/**
 	 * tests signature for an array of long values 
 	 */
+	@Test
 	public void testJDILongArray() {
 		List<?> classes = fVM.classesByName("long[]");
 		assertTrue(
@@ -72,6 +77,7 @@ public class ClassesByNameTest extends AbstractJDITest {
 	/**
 	 * tests signature of a two dimensional array of long values
 	 */
+	@Test
 	public void testJDILongDoubleArray() {
 		List<?> classes = fVM.classesByName("long[][]");
 		assertTrue(
@@ -83,6 +89,7 @@ public class ClassesByNameTest extends AbstractJDITest {
 	/**
 	 * Test that there is a class object for 'java.lang.String[]'
 	 */
+	@Test
 	public void testJDIStringArray() {
 		List<?> classes = fVM.classesByName("java.lang.String[]");
 		assertTrue(
@@ -95,6 +102,7 @@ public class ClassesByNameTest extends AbstractJDITest {
 	/**
 	 * Test that there is a class object for 'java.lang.String'
 	 */
+	@Test
 	public void testJDIString() {
 		List<?> classes = fVM.classesByName("java.lang.String");
 		assertTrue(

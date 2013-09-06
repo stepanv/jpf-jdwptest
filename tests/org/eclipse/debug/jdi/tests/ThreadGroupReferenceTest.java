@@ -17,6 +17,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 import java.util.ListIterator;
 
+import org.junit.Test;
+
 import com.sun.jdi.ThreadGroupReference;
 import com.sun.jdi.ThreadReference;
 
@@ -57,12 +59,14 @@ public class ThreadGroupReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI name() and JDWP 'ThreadGroup - Get name'.
 	 */
+	@Test
 	public void testJDIName() {
 		assertEquals("1", "Test ThreadGroup", fThreadGroup.name());
 	}
 	/**
 	 * Test JDI parent() and JDWP 'ThreadGroup - Get parent'.
 	 */
+	@Test
 	public void testJDIParent() {
 		ThreadGroupReference systemThreadGroup = fThreadGroup.parent();
 		assertNotNull("1", systemThreadGroup);
@@ -72,6 +76,7 @@ public class ThreadGroupReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI suspend() and resume().
 	 */
+	@Test
 	public void testJDISuspendResume() {
 		fThreadGroup.suspend();
 		fThreadGroup.resume();
@@ -79,6 +84,7 @@ public class ThreadGroupReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI threadGroups().
 	 */
+	@Test
 	public void testJDIThreadGroups() {
 		List<?> threadGroups = fThreadGroup.threadGroups();
 		assertEquals("1", 0, threadGroups.size());
@@ -86,6 +92,7 @@ public class ThreadGroupReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI threads() and JDWP 'ThreadGroup - Get children'.
 	 */
+	@Test
 	public void testJDIThreads() {
 		List<?> threads = fThreadGroup.threads();
 		ListIterator<?> iterator = threads.listIterator();

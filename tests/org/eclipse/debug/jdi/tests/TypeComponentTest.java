@@ -13,6 +13,8 @@ package org.eclipse.debug.jdi.tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.ReferenceType;
 import com.sun.jdi.TypeComponent;
 
@@ -44,6 +46,7 @@ public class TypeComponentTest extends AbstractJDITest {
 	/**
 	 * Test JDI declaringType().
 	 */
+	@Test
 	public void testJDIDeclaringType() {
 		ReferenceType mainClass = getMainClass();
 
@@ -56,6 +59,7 @@ public class TypeComponentTest extends AbstractJDITest {
 	/**
 	 * Test JDI isFinal().
 	 */
+	@Test
 	public void testJDIIsFinal() {
 		assertTrue("1", !fField.isFinal());
 		assertTrue("2", !fMethod.isFinal());
@@ -63,6 +67,7 @@ public class TypeComponentTest extends AbstractJDITest {
 	/**
 	 * Test JDI isStatic().
 	 */
+	@Test
 	public void testJDIIsStatic() {
 		assertTrue("1", fField.isStatic());
 		assertTrue("2", !fMethod.isStatic());
@@ -70,6 +75,7 @@ public class TypeComponentTest extends AbstractJDITest {
 	/**
 	 * Test JDI isSynthetic().
 	 */
+	@Test
 	public void testJDIIsSynthetic() {
 		if (!fVM.canGetSyntheticAttribute()) {
 			return;
@@ -81,6 +87,7 @@ public class TypeComponentTest extends AbstractJDITest {
 	/**
 	 * Test JDI name().
 	 */
+	@Test
 	public void testJDIName() {
 		assertEquals("1", "fObject", fField.name());
 		assertEquals("2", "print", fMethod.name());
@@ -88,6 +95,7 @@ public class TypeComponentTest extends AbstractJDITest {
 	/**
 	 * Test JDI signature().
 	 */
+	@Test
 	public void testJDISignature() {
 		assertEquals(
 			"1",

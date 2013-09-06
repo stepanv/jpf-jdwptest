@@ -18,6 +18,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+import org.junit.Test;
+
 import com.sun.jdi.BooleanValue;
 import com.sun.jdi.ByteValue;
 import com.sun.jdi.CharValue;
@@ -73,30 +75,35 @@ public class VirtualMachineTest extends AbstractJDITest {
 	/**
 	 * Test JDI canGetBytecodes().
 	 */
+	@Test
 	public void testJDICanGetBytecodes() {
 		fVM.canGetBytecodes();
 	}
 	/**
 	 * Test JDI canGetCurrentContendedMonitor().
 	 */
+	@Test
 	public void testJDICanGetCurrentContendedMonitor() {
 		fVM.canGetCurrentContendedMonitor();
 	}
 	/**
 	 * Test JDI canGetMonitorInfo().
 	 */
+	@Test
 	public void testJDICanGetMonitorInfo() {
 		fVM.canGetMonitorInfo();
 	}
 	/**
 	 * Test JDI canGetOwnedMonitorInfo().
 	 */
+	@Test
 	public void testJDICanGetOwnedMonitorInfo() {
 		fVM.canGetOwnedMonitorInfo();
 	}
 	/**
 	 * Test JDI canGetSyntheticAttribute().
 	 */
+	@Test
 	public void testJDICanGetSyntheticAttribute() {
 		//  This is optional functionality, thus this is not a failure
 		fVM.canGetSyntheticAttribute();
@@ -104,6 +111,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	/**
 	 * Test JDI canWatchFieldAccess().
 	 */
+	@Test
 	public void testJDICanWatchFieldAccess() {
 		//  This is optional functionality, thus this is not a failure
 		fVM.canWatchFieldAccess();
@@ -111,6 +119,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	/**
 	 * Test JDI canWatchFieldModification().
 	 */
+	@Test
 	public void testJDICanWatchFieldModification() {
 		//  This is optional functionality, thus this is not a failure
 		fVM.canWatchFieldModification();
@@ -118,18 +127,21 @@ public class VirtualMachineTest extends AbstractJDITest {
 	/**
 	 * Test JDI eventQueue().
 	 */
+	@Test
 	public void testJDIEventQueue() {
 		assertNotNull("1", fVM.eventQueue());
 	}
 	/**
 	 * Test JDI eventRequestManager().
 	 */
+	@Test
 	public void testJDIEventRequestManager() {
 		assertNotNull("1", fVM.eventRequestManager());
 	}
 	/**
 	 * Test JDI mirrorOf(boolean).
 	 */
+	@Test
 	public void testJDIMirrorOfBoolean() {
 		boolean value = true;
 		BooleanValue mirror = fVM.mirrorOf(value);
@@ -138,6 +150,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	/**
 	 * Test JDI mirrorOf(byte).
 	 */
+	@Test
 	public void testJDIMirrorOfByte() {
 		byte value = 1;
 		ByteValue mirror = fVM.mirrorOf(value);
@@ -146,6 +159,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	/**
 	 * Test JDI mirrorOf(char).
 	 */
+	@Test
 	public void testJDIMirrorOfChar() {
 		char value = 'a';
 		CharValue mirror = fVM.mirrorOf(value);
@@ -154,6 +168,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	/**
 	 * Test JDI mirrorOf(double).
 	 */
+	@Test
 	public void testJDIMirrorOfDouble() {
 		double value = 12345.6789;
 		DoubleValue mirror = fVM.mirrorOf(value);
@@ -162,6 +177,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	/**
 	 * Test JDI mirrorOf(float).
 	 */
+	@Test
 	public void testJDIMirrorOfFloat() {
 		float value = 12345.6789f;
 		FloatValue mirror = fVM.mirrorOf(value);
@@ -170,6 +186,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	/**
 	 * Test JDI mirrorOf(int).
 	 */
+	@Test
 	public void testJDIMirrorOfInt() {
 		int value = 12345;
 		IntegerValue mirror = fVM.mirrorOf(value);
@@ -178,6 +195,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	/**
 	 * Test JDI mirrorOf(long).
 	 */
+	@Test
 	public void testJDIMirrorOfLong() {
 		long value = 1234567890l;
 		LongValue mirror = fVM.mirrorOf(value);
@@ -186,6 +204,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	/**
 	 * Test JDI mirrorOf(short).
 	 */
+	@Test
 	public void testJDIMirrorOfShort() {
 		short value = (short) 12345;
 		ShortValue mirror = fVM.mirrorOf(value);
@@ -194,6 +213,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	/**
 	 * Test JDI mirrorOf(String) and JDWP 'VM - Create String'.
 	 */
+	@Test
 	public void testJDIMirrorOfString() {
 		String testString = "Test";
 		StringReference newString = null;
@@ -203,6 +223,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	/**
 	 * Test JDI setDebugTraceMode(int).
 	 */
+	@Test
 	public void testJDISetDebugTraceMode() {
 		fVM.setDebugTraceMode(com.sun.jdi.VirtualMachine.TRACE_ALL);
 		fVM.setDebugTraceMode(com.sun.jdi.VirtualMachine.TRACE_SENDS);
@@ -215,6 +236,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	/**
 	 * Test JDI getVersion().
 	 */
+	@Test
 	public void testJDIVersion() {
 		String version = fVM.version();
 		assertTrue("1", version != null);
@@ -223,6 +245,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	 * Test JDI allClasses() and JDWP 'VM - Get all classes'
 	 * while the test program has not been started.
 	 */
+	@Test
 	public void testNotStartedAllClasses() {
 		List<?> classes = fVM.allClasses();
 		Iterator<?> iterator = classes.listIterator();
@@ -234,6 +257,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	 * Test JDI allThreads() and JDWP 'VM - Get all threads'
 	 * while the test program has not been started.
 	 */
+	@Test
 	public void testNotStartedAllThreads() {
 		List<?> threads = fVM.allThreads();
 		Iterator<?> iterator = threads.listIterator();
@@ -244,6 +268,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	/**
 	 * Test JDI classesByName() while the test program has not been started.
 	 */
+	@Test
 	public void testNotStartedClassesByName() {
 		List<?> classes = fVM.classesByName("java.lang.Object");
 		assertEquals("1", 1, classes.size());
@@ -252,6 +277,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	 * Test JDI allClasses() and JDWP 'VM- Get all classes'
 	 * once the test program has been started.
 	 */
+	@Test
 	public void testStartedAllClasses() {
 
 		// The test program has started, the number of classes is != 0
@@ -289,6 +315,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	 * Test JDI allThreads() and JDWP 'VM - Get all threads'
 	 * once the test program has been started.
 	 */
+	@Test
 	public void testStartedAllThreads() {
 
 		// The test program has started, the number of threads is != 0
@@ -320,6 +347,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	/**
 	 * Test JDI classesByName() once the test program has been started.
 	 */
+	@Test
 	public void testStartedClassesByName() {
 
 		// The test program has started, the number of java.lang.Object is 1
@@ -343,6 +371,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	/**
 	 * Test JDI suspend() and resume() once the test program has been started.
 	 */
+	@Test
 	public void testStartedSuspendResume() {
 		// Suspend
 		fVM.suspend();
@@ -374,6 +403,7 @@ public class VirtualMachineTest extends AbstractJDITest {
 	/**
 	 * Test JDI topLevelThreadGroups().
 	 */
+	@Test
 	public void testStartedTopLevelThreadGroups() {
 		List<?> topLevelThreadGroups = fVM.topLevelThreadGroups();
 		assertEquals("1", 1, topLevelThreadGroups.size());

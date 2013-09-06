@@ -13,6 +13,8 @@ package org.eclipse.debug.jdi.tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.AbsentInformationException;
 import com.sun.jdi.Location;
 import com.sun.jdi.Method;
@@ -48,12 +50,14 @@ public class LocationTest extends AbstractJDITest {
 	/**
 	 * Test JDI codeIndex().
 	 */
+	@Test
 	public void testJDICodeIndex() {
 		fLocation.codeIndex();
 	}
 	/**
 	 * Test JDI declaringType().
 	 */
+	@Test
 	public void testJDIDeclaringType() {
 		ReferenceType expected = getMainClass();
 		ReferenceType declaringType = fLocation.declaringType();
@@ -63,6 +67,7 @@ public class LocationTest extends AbstractJDITest {
 	/**
 	 * Test JDI equals() and hashCode().
 	 */
+	@Test
 	public void testJDIEquality() {
 		assertTrue("1", fLocation.equals(fLocation));
 		Location other = getFrame(0).location();
@@ -74,12 +79,14 @@ public class LocationTest extends AbstractJDITest {
 	/**
 	 * Test JDI lineNumber().
 	 */
+	@Test
 	public void testJDILineNumber() {
 		assertEquals("1", 185, fLocation.lineNumber());
 	}
 	/**
 	 * Test JDI method().
 	 */
+	@Test
 	public void testJDIMethod() {
 		Method method = fLocation.method();
 		assertEquals("1", "print", method.name());
@@ -87,6 +94,7 @@ public class LocationTest extends AbstractJDITest {
 	/**
 	 * Test JDI sourceName().
 	 */
+	@Test
 	public void testJDISourceName() {
 		String sourceName = null;
 		try {

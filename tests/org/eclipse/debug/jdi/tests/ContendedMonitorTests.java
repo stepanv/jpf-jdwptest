@@ -15,6 +15,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import org.junit.Test;
+
 import com.sun.jdi.request.EventRequestManager;
 import com.sun.jdi.request.MonitorContendedEnterRequest;
 import com.sun.jdi.request.MonitorContendedEnteredRequest;
@@ -41,6 +43,7 @@ public class ContendedMonitorTests extends AbstractJDITest {
 	 * test to see if a the 1.6 VM can get monitor events info and that 
 	 * a non-1.6VM cannot.
 	 */
+	@Test
 	public void testCanRequestMonitorEvents() {
 		if(is16OrGreater()) {
 			assertTrue("Should have ability to request monitor events info", fVM.canRequestMonitorEvents());
@@ -54,6 +57,7 @@ public class ContendedMonitorTests extends AbstractJDITest {
 	 * test getting monitor contended enter requests from the event request manager
 	 * this test is not applicable to non 1.6 VMs
 	 */
+	@Test
 	public void testMonitorContendedEnterRequests() {
 		if(!fVM.canRequestMonitorEvents()) {
 			return;
@@ -70,6 +74,7 @@ public class ContendedMonitorTests extends AbstractJDITest {
 	 * test getting monitor contended entered requests from the event request manager
 	 * this test is not applicable to non 1.6 VMs
 	 */
+	@Test
 	public void testMonitorContendedEnteredRequests() {
 		if(!fVM.canRequestMonitorEvents()) {
 			return;
@@ -86,6 +91,7 @@ public class ContendedMonitorTests extends AbstractJDITest {
 	 * test getting monitor wait requests from the event request manager
 	 * this test is not applicable to non 1.6 VMs
 	 */
+	@Test
 	public void testMonitorWaitRequest() {
 		if(!fVM.canRequestMonitorEvents()) {
 			return;
@@ -102,6 +108,7 @@ public class ContendedMonitorTests extends AbstractJDITest {
 	 * test getting monitor waited requests from the event request manager
 	 * this test is not applicable to non 1.6 VMs
 	 */
+	@Test
 	public void testMonitorWaitedRequest() {
 		if(!fVM.canRequestMonitorEvents()) {
 			return;

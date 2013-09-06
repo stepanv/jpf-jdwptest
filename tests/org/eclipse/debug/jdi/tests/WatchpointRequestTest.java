@@ -12,6 +12,8 @@ package org.eclipse.debug.jdi.tests;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
+
 import com.sun.jdi.request.WatchpointRequest;
 
 /**
@@ -53,6 +55,7 @@ public class WatchpointRequestTest extends AbstractJDITest {
 	/**
 	 * Test JDI field().
 	 */
+	@Test
 	public void testJDIField() {
 		assertEquals("1", getField("fBool"), fAccessWatchpointRequest.field());
 		assertEquals(

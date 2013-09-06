@@ -19,6 +19,8 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 
+import org.junit.Test;
+
 import com.sun.jdi.Field;
 import com.sun.jdi.IntegerValue;
 import com.sun.jdi.Method;
@@ -65,6 +67,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI allFields().
 	 */
+	@Test
 	public void testJDIAllFields() {
 		Iterator<ReferenceType> iterator = fTypes.listIterator();
 		while (iterator.hasNext()) {
@@ -79,6 +82,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI allMethods().
 	 */
+	@Test
 	public void testJDIAllMethods() {
 		Iterator<ReferenceType> iterator = fTypes.listIterator();
 		while (iterator.hasNext()) {
@@ -93,6 +97,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI classLoader() and JDWP 'Type - Get class loader'.
 	 */
+	@Test
 	public void testJDIClassLoader() {
 		for (int i = 0; i < fTypes.size(); ++i) {
 			ReferenceType type = fTypes.get(i);
@@ -104,6 +109,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI classObject().
 	 */
+	@Test
 	public void testJDIClassObject() {
 		ListIterator<ReferenceType> iterator = fTypes.listIterator();
 		while (iterator.hasNext()) {
@@ -115,6 +121,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI equals() and hashCode().
 	 */
+	@Test
 	public void testJDIEquality() {
 		ReferenceType other = fVM.classesByName("java.lang.String").get(0);
 		ListIterator<ReferenceType> iterator = fTypes.listIterator();
@@ -132,6 +139,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI failedToInitialize().
 	 */
+	@Test
 	public void testJDIFailedToInitialize() {
 		ListIterator<ReferenceType> iterator = fTypes.listIterator();
 		while (iterator.hasNext()) {
@@ -143,6 +151,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI fieldByName(String).
 	 */
+	@Test
 	public void testJDIFieldByName() {
 		// NB: This tests the class type only, it should test the others too
 		ReferenceType type = fTypes.get(fMainClassIndex);
@@ -153,6 +162,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI fields() and JDWP 'Type - Get Fields'.
 	 */
+	@Test
 	public void testJDIFields() {
 		Iterator<ReferenceType> iterator = fTypes.listIterator();
 		while (iterator.hasNext()) {
@@ -167,6 +177,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI getValue(Field) and JDWP 'Type - Get Fields Values'.
 	 */
+	@Test
 	public void testJDIGetValue() {
 		// NB: This tests the class type only, it should test the others too
 		ReferenceType type = fTypes.get(fMainClassIndex);
@@ -178,6 +189,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI getValues(List) and JDWP 'Type - Get Fields Values'.
 	 */
+	@Test
 	public void testJDIGetValues() {
 		// NB: This tests the class type only, it should test the others too
 		ReferenceType type = fTypes.get(fMainClassIndex);
@@ -207,6 +219,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI isAbstract().
 	 */
+	@Test
 	public void testJDIIsAbstract() {
 		ListIterator<ReferenceType> iterator = fTypes.listIterator();
 		while (iterator.hasNext()) {
@@ -221,6 +234,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI isFinal().
 	 */
+	@Test
 	public void testJDIIsFinal() {
 		for (int i = 0; i < fTypes.size(); ++i) {
 			ReferenceType type = fTypes.get(i);
@@ -231,6 +245,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI isInitialized().
 	 */
+	@Test
 	public void testJDIIsInitialized() {
 		ListIterator<ReferenceType> iterator = fTypes.listIterator();
 		while (iterator.hasNext()) {
@@ -242,6 +257,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI isPrepared().
 	 */
+	@Test
 	public void testJDIIsPrepared() {
 		ListIterator<ReferenceType> iterator = fTypes.listIterator();
 		while (iterator.hasNext()) {
@@ -253,6 +269,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI isStatic().
 	 */
+	@Test
 	public void testJDIIsStatic() {
 		ListIterator<ReferenceType> iterator = fTypes.listIterator();
 		while (iterator.hasNext()) {
@@ -264,6 +281,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI isVerified().
 	 */
+	@Test
 	public void testJDIIsVerified() {
 		for (int i = 0; i < fTypes.size(); ++i) {
 			if (i != fObjectIndex) {
@@ -276,6 +294,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI methods() and JDWP 'Type - Get Methods'.
 	 */
+	@Test
 	public void testJDIMethods() {
 		for (int i = 0; i < fTypes.size(); ++i) {
 			ReferenceType type = fTypes.get(i);
@@ -287,6 +306,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI methodsByName(String) and methodsByName(String, String).
 	 */
+	@Test
 	public void testJDIMethodsByName() {
 		Iterator<ReferenceType> iterator = fTypes.listIterator();
 		while (iterator.hasNext()) {
@@ -309,6 +329,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI isAbstract(), isFinal() and isStatic() and JDWP 'Type - Get modifiers'.
 	 */
+	@Test
 	public void testJDIModifiers() {
 		for (int i = 0; i < fTypes.size(); ++i) {
 			ReferenceType type = fTypes.get(i);
@@ -324,6 +345,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI name() and JDWP 'Type - Get signature'.
 	 */
+	@Test
 	public void testJDIName() {
 		for (int i = 0; i < fTypes.size(); ++i) {
 			ReferenceType type = fTypes.get(i);
@@ -334,6 +356,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI nestedTypes().
 	 */
+	@Test
 	public void testJDINestedTypes() {
 		// NB: This tests the class type only, it should test the others too
 		ReferenceType type = getClass("org.eclipse.debug.jdi.tests.program.OtherClass");
@@ -346,6 +369,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI visibleFields().
 	 */
+	@Test
 	public void testJDIVisibleFields() {
 		Iterator<ReferenceType> iterator = fTypes.listIterator();
 		while (iterator.hasNext()) {
@@ -362,6 +386,7 @@ public class ReferenceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI visibleMethods().
 	 */
+	@Test
 	public void testJDIVisibleMethods() {
 		Iterator<ReferenceType> iterator = fTypes.listIterator();
 		while (iterator.hasNext()) {

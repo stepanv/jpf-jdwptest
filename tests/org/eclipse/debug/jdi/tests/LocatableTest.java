@@ -18,6 +18,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 
+import org.junit.Test;
+
 import com.sun.jdi.AbsentInformationException;
 import com.sun.jdi.Locatable;
 import com.sun.jdi.Location;
@@ -103,6 +105,7 @@ public class LocatableTest extends AbstractJDITest {
 	/**
 	 * Test JDI location()
 	 */
+	@Test
 	public void testJDILocation() {
 		ListIterator<Mirror> iterator = fLocatables.listIterator();
 		while (iterator.hasNext()) {

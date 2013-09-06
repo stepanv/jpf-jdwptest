@@ -14,6 +14,8 @@ package org.eclipse.debug.jdi.tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.ClassNotLoadedException;
 import com.sun.jdi.Field;
 
@@ -42,6 +44,7 @@ public class FieldTest extends AbstractJDITest {
 	/**
 	 * Test JDI equals() and hashCode().
 	 */
+	@Test
 	public void testJDIEquality() {
 		assertTrue("1", fField.equals(fField));
 		Field other = getField("fString");
@@ -52,18 +55,21 @@ public class FieldTest extends AbstractJDITest {
 	/**
 	 * Test JDI isTransient().
 	 */
+	@Test
 	public void testJDIIsTransient() {
 		assertTrue("1", !fField.isTransient());
 	}
 	/**
 	 * Test JDI isVolatile().
 	 */
+	@Test
 	public void testJDIIsVolatile() {
 		assertTrue("1", !fField.isVolatile());
 	}
 	/**
 	 * Test JDI type().
 	 */
+	@Test
 	public void testJDIType() {
 		try {
 			assertEquals("1", getMainClass(), fField.type());
@@ -74,6 +80,7 @@ public class FieldTest extends AbstractJDITest {
 	/**
 	 * Test JDI typeName().
 	 */
+	@Test
 	public void testJDITypeName() {
 		assertEquals(
 			"1",

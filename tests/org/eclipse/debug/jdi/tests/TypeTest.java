@@ -12,6 +12,8 @@ package org.eclipse.debug.jdi.tests;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
+
 import com.sun.jdi.Type;
 
 /**
@@ -99,6 +101,7 @@ public class TypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI signature().
 	 */
+	@Test
 	public void testJDISignature() {
 		assertEquals("1", "[Ljava/lang/String;", fArrayType.signature());
 		assertEquals("2", "Lorg/eclipse/debug/jdi/tests/program/MainClass;", fClassType.signature());
@@ -134,6 +137,7 @@ public class TypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI typeName().
 	 */
+	@Test
 	public void testJDITypeName() {
 		assertEquals("1", "java.lang.String[]", fArrayType.name());
 		assertEquals("2", "org.eclipse.debug.jdi.tests.program.MainClass", fClassType.name());

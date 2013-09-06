@@ -14,6 +14,8 @@ package org.eclipse.debug.jdi.tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.event.ClassPrepareEvent;
 import com.sun.jdi.request.ClassPrepareRequest;
 import com.sun.jdi.request.EventRequestManager;
@@ -125,6 +127,7 @@ public class ClassPrepareRequestTest extends AbstractJDITest {
 	/**
 	 * Test JDI addClassExclusionFilter(String).
 	 */
+	@Test
 	public void testJDIAddClassExclusionFilterString() {
 		EventRequestManager requestManager = fVM.eventRequestManager();
 

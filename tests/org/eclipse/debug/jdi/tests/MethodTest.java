@@ -16,6 +16,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import org.junit.Test;
+
 import com.sun.jdi.AbsentInformationException;
 import com.sun.jdi.ClassNotLoadedException;
 import com.sun.jdi.LocalVariable;
@@ -53,6 +55,7 @@ public class MethodTest extends AbstractJDITest {
 	/**
 	 * Test JDI arguments() and JDWP 'Method - Get variable table'.
 	 */
+	@Test
 	public void testJDIArguments() {
 		List<?> arguments = null;
 		try {
@@ -67,6 +70,7 @@ public class MethodTest extends AbstractJDITest {
 	/**
 	 * Test JDI argumentTypeNames().
 	 */
+	@Test
 	public void testJDIArgumentTypeNames() {
 		List<?> names = fMethod1.argumentTypeNames();
 		assertEquals("1", 2, names.size());
@@ -79,6 +83,7 @@ public class MethodTest extends AbstractJDITest {
 	/**
 	 * Test JDI argumentTypes().
 	 */
+	@Test
 	public void testJDIArgumentTypes() {
 		List<?> types = null;
 		try {
@@ -96,6 +101,7 @@ public class MethodTest extends AbstractJDITest {
 	/**
 	 * Test JDI bytecodes().
 	 */
+	@Test
 	public void testJDIBytecodes() {
 		if (!fVM.canGetBytecodes())
 			return;
@@ -106,6 +112,7 @@ public class MethodTest extends AbstractJDITest {
 	/**
 	 * Test JDI equals() and hashCode().
 	 */
+	@Test
 	public void testJDIEquality() {
 		assertTrue("1", fMethod1.equals(fMethod1));
 		Method other = getMethod("run", "()V");
@@ -117,36 +124,42 @@ public class MethodTest extends AbstractJDITest {
 	/**
 	 * Test JDI isAbstract().
 	 */
+	@Test
 	public void testJDIIsAbstract() {
 		assertTrue("1", !fMethod1.isAbstract());
 	}
 	/**
 	 * Test JDI isConstructor().
 	 */
+	@Test
 	public void testJDIIsConstructor() {
 		assertTrue("1", !fMethod1.isConstructor());
 	}
 	/**
 	 * Test JDI isNative().
 	 */
+	@Test
 	public void testJDIIsNative() {
 		assertTrue("1", !fMethod1.isNative());
 	}
 	/**
 	 * Test JDI isStaticInitializer().
 	 */
+	@Test
 	public void testJDIIsStaticInitializer() {
 		assertTrue("1", !fMethod1.isStaticInitializer());
 	}
 	/**
 	 * Test JDI isSynchronized().
 	 */
+	@Test
 	public void testJDIIsSynchronized() {
 		assertTrue("1", !fMethod1.isSynchronized());
 	}
 	/**
 	 * Test JDI locationOfCodeIndex(long).
 	 */
+	@Test
 	public void testJDILocationOfCodeIndex() {
 		Location expected = fMethod1.location();
 		Location result = fMethod1.locationOfCodeIndex(expected.codeIndex());
@@ -155,6 +168,7 @@ public class MethodTest extends AbstractJDITest {
 	/**
 	 * Test JDI locationsOfLine(int) and JDWP 'Method - Get line table'.
 	 */
+	@Test
 	public void testJDILocationsOfLine() {
 		int expected = fMethod1.location().lineNumber();
 		List<?> locations = null;
@@ -169,6 +183,7 @@ public class MethodTest extends AbstractJDITest {
 	/**
 	 * Test JDI returnType().
 	 */
+	@Test
 	public void testJDIReturnType() {
 		try {
 			assertTrue("1", fMethod1.returnType() instanceof VoidType);
@@ -179,12 +194,14 @@ public class MethodTest extends AbstractJDITest {
 	/**
 	 * Test JDI returnTypeName().
 	 */
+	@Test
 	public void testJDIReturnTypeName() {
 		assertEquals("1", "void", fMethod1.returnTypeName());
 	}
 	/**
 	 * Test JDI variables() and JDWP 'Method - Get variable table'.
 	 */
+	@Test
 	public void testJDIVariables() {
 		List<?> variables = null;
 		try {
@@ -201,6 +218,7 @@ public class MethodTest extends AbstractJDITest {
 	 * Test JDI variables() and JDWP 'Method - Get variable table'
 	 * for native method.
 	 */
+	@Test
 	public void testJDINativeMethodVariables() {
 		Method method = getMethod("java.lang.Thread", "currentThread", "()Ljava/lang/Thread;");
 
@@ -221,6 +239,7 @@ public class MethodTest extends AbstractJDITest {
 	 * Test JDI variables() and JDWP 'Method - Get variable table'
 	 * for non-native method with a long argument.
 	 */
+	@Test
 	public void testJDIMethodVariablesWithLong() {
 		List<?> variables = null;
 		Method method = getMethod("variablesTest", "(J)V");
@@ -236,6 +255,7 @@ public class MethodTest extends AbstractJDITest {
 	/**
 	 * Test JDI variablesByName(String) and JDWP 'Method - Get variable table'.
 	 */
+	@Test
 	public void testJDIVariablesByName() {
 		String varName = "t";
 		List<?> variables = null;

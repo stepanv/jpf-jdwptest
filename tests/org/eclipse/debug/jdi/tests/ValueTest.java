@@ -12,6 +12,8 @@ package org.eclipse.debug.jdi.tests;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
+
 import com.sun.jdi.Value;
 
 /**
@@ -58,6 +60,7 @@ public class ValueTest extends AbstractJDITest {
 	/**
 	 * Test JDI type().
 	 */
+	@Test
 	public void testJDIType() {
 		assertEquals("1", "boolean", fBoolean.type().name());
 		assertEquals("2", "byte", fByte.type().name());

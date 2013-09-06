@@ -16,6 +16,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.eclipse.jdi.internal.StringReferenceImpl;
+import org.junit.Test;
 
 import com.sun.jdi.Method;
 import com.sun.jdi.ThreadReference;
@@ -63,6 +64,7 @@ public class MethodReturnValuesTests extends AbstractJDITest {
 	/**
 	 * test to make sure 1.6 VM supports method return values 
 	 */
+	@Test
 	public void testCanGetMethodReturnValues() {
 		if(is16OrGreater()) {
 			assertTrue("Should have method return values capabilities", fVM.canGetMethodReturnValues());
@@ -76,6 +78,7 @@ public class MethodReturnValuesTests extends AbstractJDITest {
 	 * test getting a void return value.
 	 * not applicable to non 1.6 VMs
 	 */
+	@Test
 	public void testGetVoidMethodReturnValue() {
 		if(!fVM.canGetMethodReturnValues()) {
 			return;
@@ -118,6 +121,7 @@ public class MethodReturnValuesTests extends AbstractJDITest {
 	 * test to make sure that returnValue is working to spec.
 	 * test is not applicable to non 1.6 VMs
 	 */
+	@Test
 	public void testGetStringMethodReturnValue() {
 		if(!fVM.canGetMethodReturnValues()) {
 			return;
@@ -160,6 +164,7 @@ public class MethodReturnValuesTests extends AbstractJDITest {
 	 * test to make sure that returnValue is working to spec.
 	 * test is not applicable to non 1.6 VMs
 	 */
+	@Test
 	public void testGetIntMethodReturnValue() {
 		if(!fVM.canGetMethodReturnValues()) {
 			return;
@@ -202,6 +207,7 @@ public class MethodReturnValuesTests extends AbstractJDITest {
 	 * test to make sure that returnValue is working to spec.
 	 * test is not applicable to non 1.6 VMs
 	 */
+	@Test
 	public void testGetBooleanMethodReturnValue() {
 		if(!fVM.canGetMethodReturnValues()) {
 			return;
@@ -244,6 +250,7 @@ public class MethodReturnValuesTests extends AbstractJDITest {
 	 * test to make sure that returnValue is working to spec.
 	 * test is not applicable to non 1.6 VMs
 	 */
+	@Test
 	public void testGetLongMethodReturnValue() {
 		if(!fVM.canGetMethodReturnValues()) {
 			return;

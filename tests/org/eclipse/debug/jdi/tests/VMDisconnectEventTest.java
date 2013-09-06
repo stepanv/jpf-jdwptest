@@ -12,6 +12,8 @@ package org.eclipse.debug.jdi.tests;
 
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.event.VMDisconnectEvent;
 
 /**
@@ -60,6 +62,7 @@ public class VMDisconnectEventTest extends AbstractJDITest {
 	/**
 	 * Test that we received the event.
 	 */
+	@Test
 	public void testJDIVMDeath() {
 		assertTrue("1", fVMDisconnectEvent != null);
 	}

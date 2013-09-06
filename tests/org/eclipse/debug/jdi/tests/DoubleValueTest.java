@@ -14,6 +14,8 @@ package org.eclipse.debug.jdi.tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.DoubleValue;
 
 /**
@@ -41,6 +43,7 @@ public class DoubleValueTest extends AbstractJDITest {
 	/**
 	 * Test JDI equals() and hashCode().
 	 */
+	@Test
 	public void testJDIEquality() {
 		assertTrue("1", fValue.equals(fVM.mirrorOf(12345.6789)));
 		assertTrue("2", !fValue.equals(fVM.mirrorOf(98765.4321)));
@@ -55,6 +58,7 @@ public class DoubleValueTest extends AbstractJDITest {
 	/**
 	 * Test JDI value().
 	 */
+	@Test
 	public void testJDIValue() {
 		assertTrue("1", 12345.6789 == fValue.value());
 	}

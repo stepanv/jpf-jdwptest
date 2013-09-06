@@ -17,6 +17,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 import java.util.ListIterator;
 
+import org.junit.Test;
+
 import com.sun.jdi.Field;
 import com.sun.jdi.Location;
 import com.sun.jdi.request.AccessWatchpointRequest;
@@ -56,6 +58,7 @@ public class EventRequestManagerTest extends AbstractJDITest {
 	 * Test JDI createAccessWatchpointRequest(Field), accessWatchpointRequests()
 	 * and deleteEventRequest(EventRequest)
 	 */
+	@Test
 	public void testJDIAccessWatchpointRequest() {
 		if (!fVM.canWatchFieldAccess())
 			return;
@@ -81,6 +84,7 @@ public class EventRequestManagerTest extends AbstractJDITest {
 	 * Test JDI createBreakpointRequest(Location), breakpointRequests(), 
 	 * deleteEventRequest(EventRequest) and deleteAllBreakpoints()
 	 */
+	@Test
 	public void testJDIBreakpointRequest() {
 		// Create a breakpoint at a valid location
 		Location location = getLocation();
@@ -108,6 +112,7 @@ public class EventRequestManagerTest extends AbstractJDITest {
 	 * Test JDI createClassPrepareRequest(), classPrepareRequests()
 	 * and deleteEventRequest(EventRequest)
 	 */
+	@Test
 	public void testJDIClassPrepareRequest() {
 		// Create a class prepare request
 		ClassPrepareRequest request= fManager.createClassPrepareRequest();
@@ -128,6 +133,7 @@ public class EventRequestManagerTest extends AbstractJDITest {
 	 * Test JDI createClassUnloadRequest(), classUnloadRequests()
 	 * and deleteEventRequest(EventRequest)
 	 */
+	@Test
 	public void testJDIClassUnloadRequest() {
 		// Create a class unload request
 		ClassUnloadRequest request= fManager.createClassUnloadRequest();
@@ -148,6 +154,7 @@ public class EventRequestManagerTest extends AbstractJDITest {
 	 * Test JDI createExceptionRequest(), exceptionRequests()
 	 * and deleteEventRequest(EventRequest)
 	 */
+	@Test
 	public void testJDIExceptionRequest() {
 		// Create a exception request
 		ExceptionRequest request= fManager.createExceptionRequest(null, true, true);
@@ -168,6 +175,7 @@ public class EventRequestManagerTest extends AbstractJDITest {
 	 * Test JDI createModificationWatchpointRequest(Field), 
 	 * accessWatchpointRequests() and deleteEventRequest(EventRequest)
 	 */
+	@Test
 	public void testJDIModificationWatchpointRequest() {
 		if (!fVM.canWatchFieldAccess())
 			return;
@@ -193,6 +201,7 @@ public class EventRequestManagerTest extends AbstractJDITest {
 	 * Test JDI createStepRequest(), stepRequests()
 	 * and deleteEventRequest(EventRequest)
 	 */
+	@Test
 	public void testJDIStepRequest() {
 		// Create a step request
 		StepRequest request= fManager.createStepRequest(getThread(), StepRequest.STEP_LINE, StepRequest.STEP_OVER);
@@ -213,6 +222,7 @@ public class EventRequestManagerTest extends AbstractJDITest {
 	 * Test JDI createThreadDeathRequest(), threadDeathRequests()
 	 * and deleteEventRequest(EventRequest)
 	 */
+	@Test
 	public void testJDIThreadDeathRequest() {
 		// Create a ThreadDeath request
 		ThreadDeathRequest request= fManager.createThreadDeathRequest();
@@ -233,6 +243,7 @@ public class EventRequestManagerTest extends AbstractJDITest {
 	 * Test JDI createThreadStartRequest(), classUnloadRequests()
 	 * and deleteEventRequest(EventRequest)
 	 */
+	@Test
 	public void testJDIThreadStartRequest() {
 		// Create a ThreadStart request
 		ThreadStartRequest request= fManager.createThreadStartRequest();

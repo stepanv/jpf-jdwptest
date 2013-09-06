@@ -52,7 +52,7 @@ public class AccessibleTest extends AbstractJDITest {
 	 * Test JDI isPackagePrivate().
 	 */
 	@Test
-	public void isPackagePrivate() {
+	public void testJDIIsPackagePrivate() {
 		assertTrue("1", !fArrayType.isPackagePrivate());
 		assertTrue("2", !fClassType.isPackagePrivate());
 		assertTrue("3", !fInterfaceType.isPackagePrivate());
@@ -64,7 +64,7 @@ public class AccessibleTest extends AbstractJDITest {
 	 * Test JDI isPrivate().
 	 */
 	@Test
-	public void isPrivate() {
+	public void testJDIIsPrivate() {
 		assertTrue("1", !fField.isPrivate());
 		assertTrue("2", !fMethod.isPrivate());
 
@@ -75,7 +75,7 @@ public class AccessibleTest extends AbstractJDITest {
 	 * Test JDI isProtected().
 	 */
 	@Test
-	public void isProtected() {
+	public void testJDIIsProtected() {
 		assertTrue("1", !fField.isProtected());
 		assertTrue("2", !fMethod.isProtected());
 
@@ -86,7 +86,7 @@ public class AccessibleTest extends AbstractJDITest {
 	 * Test JDI isPublic().
 	 */
 	@Test
-	public void isPublic() {
+	public void testJDIIsPublic() {
 		assertTrue("1", fArrayType.isPublic());
 		assertTrue("2", fClassType.isPublic());
 		assertTrue("3", fInterfaceType.isPublic());

@@ -14,6 +14,8 @@ package org.eclipse.debug.jdi.tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.CharValue;
 
 /**
@@ -41,6 +43,7 @@ public class CharValueTest extends AbstractJDITest {
 	/**
 	 * Test JDI equals() and hashCode().
 	 */
+	@Test
 	public void testJDIEquality() {
 		assertTrue("1", fValue.equals(fVM.mirrorOf('a')));
 		assertTrue("2", !fValue.equals(fVM.mirrorOf('b')));
@@ -52,6 +55,7 @@ public class CharValueTest extends AbstractJDITest {
 	/**
 	 * Test JDI value().
 	 */
+	@Test
 	public void testJDIValue() {
 		assertTrue("1", 'a' == fValue.value());
 	}

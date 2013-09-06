@@ -17,6 +17,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import org.junit.Test;
+
 import com.sun.jdi.event.Event;
 import com.sun.jdi.request.EventRequest;
 
@@ -93,6 +95,7 @@ public class EventTest extends AbstractJDITest {
 	/**
 	 * Test JDI request().
 	 */
+	@Test
 	public void testJDIRequest() {
 		Iterator<EventRequest> iterator = fAllEvents.keySet().iterator();
 		while (iterator.hasNext()) {

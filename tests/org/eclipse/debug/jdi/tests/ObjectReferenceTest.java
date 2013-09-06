@@ -19,6 +19,8 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 
+import org.junit.Test;
+
 import com.sun.jdi.ClassNotLoadedException;
 import com.sun.jdi.ClassType;
 import com.sun.jdi.Field;
@@ -72,6 +74,7 @@ public class ObjectReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI disableCollection(). enableCollection() and isCollected().
 	 */
+	@Test
 	public void testJDIDisableEnableCollection() {
 		assertTrue("1", !fObject.isCollected());
 		fObject.disableCollection();
@@ -80,6 +83,7 @@ public class ObjectReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI entryCount().
 	 */
+	@Test
 	public void testJDIEntryCount() {
 		if (fVM.canGetMonitorInfo()) {
 			// Ensure we're in a good state
@@ -96,6 +100,7 @@ public class ObjectReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI equals() and hashCode().
 	 */
+	@Test
 	public void testJDIEquality() {
 		assertTrue("1", fObject.equals(fObject));
 		ObjectReference other = getThread();
@@ -108,6 +113,7 @@ public class ObjectReferenceTest extends AbstractJDITest {
 	 * Test JDI getValue(Field), getValues(List) and setValue(Field,Value)
 	 * and JDWP 'Object - Get Fields Values' and 'Object - Set Fields Values'.
 	 */
+	@Test
 	public void testJDIGetSetValues() {
 		// setup
 		ReferenceType type = fObject.referenceType();
@@ -167,6 +173,7 @@ public class ObjectReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI invokeMethod.
 	 */
+	@Test
 	public void testJDIInvokeMethod() {
 		// Make sure the entire VM is not suspended before we start a new thread
 		// (otherwise this new thread will start suspended and we will never get the
@@ -206,6 +213,7 @@ public class ObjectReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI invokeMethod - failure.
 	 */
+	@Test
 	public void testJDIInvokeMethodFail() {
 		// Make sure the entire VM is not suspended before we start a new thread
 		// (otherwise this new thread will start suspended and we will never get the
@@ -240,6 +248,7 @@ public class ObjectReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI owningThread().
 	 */
+	@Test
 	public void testJDIOwningThread() {
 		if (fVM.canGetMonitorInfo()) {
 			// Ensure we're in a good state
@@ -256,6 +265,7 @@ public class ObjectReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI referenceType() and JDWP 'Type - Get type'.
 	 */
+	@Test
 	public void testJDIReferenceType() {
 		ReferenceType type = fObject.referenceType();
 		assertEquals("1", type.name(), "org.eclipse.debug.jdi.tests.program.MainClass");
@@ -263,12 +273,14 @@ public class ObjectReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI uniqueID().
 	 */
+	@Test
 	public void testJDIUniqueID() {
 		fObject.uniqueID();
 	}
 	/**
 	 * Test JDI waitingThreads().
 	 */
+	@Test
 	public void testJDIWaitingThreads() {
 		if (fVM.canGetMonitorInfo()) {
 			try {

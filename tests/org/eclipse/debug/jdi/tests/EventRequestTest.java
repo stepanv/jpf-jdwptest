@@ -16,6 +16,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.junit.Test;
+
 import com.sun.jdi.request.EventRequest;
 import com.sun.jdi.request.StepRequest;
 
@@ -66,6 +68,7 @@ public class EventRequestTest extends AbstractJDITest {
 	/**
 	 * Test JDI disable(), enable(), isEnable() and setEnable(boolean).
 	 */
+	@Test
 	public void testJDIEnable() {
 		for (int i = 0; i < fRequests.size(); i++) {
 			EventRequest request = fRequests.get(i);
@@ -83,6 +86,7 @@ public class EventRequestTest extends AbstractJDITest {
 	/**
 	 * Test JDI setSuspendPolicy(int) and suspendPolicy().
 	 */
+	@Test
 	public void testJDISuspendPolicy() {
 		int policy = EventRequest.SUSPEND_EVENT_THREAD;
 		for (int i = 0; i < fRequests.size(); i++) {
@@ -97,6 +101,7 @@ public class EventRequestTest extends AbstractJDITest {
 	/**
 	 * Test JDI putProperty and getProperty.
 	 */
+	@Test
 	public void testJDIProperties() {
 		EventRequest request = fRequests.get(0);
 		request.putProperty(new Integer(0), "prop1");

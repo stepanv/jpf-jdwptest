@@ -14,6 +14,8 @@ package org.eclipse.debug.jdi.tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.PrimitiveValue;
 
 /**
@@ -55,6 +57,7 @@ public class PrimitiveValueTest extends AbstractJDITest {
 	/**
 	 * Test JDI booleanValue().
 	 */
+	@Test
 	public void testJDIBooleanValue() {
 		assertTrue("1", fBoolean.booleanValue());
 		assertTrue("2", fByte.booleanValue());
@@ -68,6 +71,7 @@ public class PrimitiveValueTest extends AbstractJDITest {
 	/**
 	 * Test JDI byteValue().
 	 */
+	@Test
 	public void testJDIByteValue() {
 		assertEquals("1", (byte) 1, fBoolean.byteValue());
 		assertEquals("2", (byte) 1, fByte.byteValue());
@@ -81,6 +85,7 @@ public class PrimitiveValueTest extends AbstractJDITest {
 	/**
 	 * Test JDI charValue().
 	 */
+	@Test
 	public void testJDICharValue() {
 		assertEquals("1", (char) 1, fBoolean.charValue());
 		assertEquals("2", (char) 1, fByte.charValue());
@@ -94,6 +99,7 @@ public class PrimitiveValueTest extends AbstractJDITest {
 	/**
 	 * Test JDI doubleValue().
 	 */
+	@Test
 	public void testJDIDoubleValue() {
 		assertEquals("1", 1, fBoolean.doubleValue(), 0);
 		assertEquals("2", 1, fByte.doubleValue(), 0);
@@ -107,6 +113,7 @@ public class PrimitiveValueTest extends AbstractJDITest {
 	/**
 	 * Test JDI floatValue().
 	 */
+	@Test
 	public void testJDIFloatValue() {
 		assertEquals("1", 1, fBoolean.floatValue(), 0);
 		assertEquals("2", 1, fByte.floatValue(), 0);
@@ -120,6 +127,7 @@ public class PrimitiveValueTest extends AbstractJDITest {
 	/**
 	 * Test JDI intValue().
 	 */
+	@Test
 	public void testJDIIntValue() {
 		assertEquals("1", 1, fBoolean.intValue());
 		assertEquals("2", 1, fByte.intValue());
@@ -133,6 +141,7 @@ public class PrimitiveValueTest extends AbstractJDITest {
 	/**
 	 * Test JDI longValue().
 	 */
+	@Test
 	public void testJDILongValue() {
 		assertEquals("1", 1l, fBoolean.longValue());
 		assertEquals("2", 1l, fByte.longValue());
@@ -146,6 +155,7 @@ public class PrimitiveValueTest extends AbstractJDITest {
 	/**
 	 * Test JDI shortValue().
 	 */
+	@Test
 	public void testJDIShortValue() {
 		assertEquals("1", 1, fBoolean.shortValue());
 		assertEquals("2", 1, fByte.shortValue());

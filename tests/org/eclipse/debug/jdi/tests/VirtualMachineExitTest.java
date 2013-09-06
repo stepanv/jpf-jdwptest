@@ -12,6 +12,8 @@ package org.eclipse.debug.jdi.tests;
 
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.VMDisconnectedException;
 
 /**
@@ -46,6 +48,7 @@ public class VirtualMachineExitTest extends AbstractJDITest {
 	/**
 	 * Test JDI exit().
 	 */
+	@Test
 	public void testJDIExit() {
 		try {
 			fVM.exit(0);

@@ -17,6 +17,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.Iterator;
 import java.util.List;
 
+import org.junit.Test;
+
 import com.sun.jdi.ClassType;
 import com.sun.jdi.InterfaceType;
 import com.sun.jdi.Method;
@@ -47,12 +49,14 @@ public class InterfaceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI allFields().
 	 */
+	@Test
 	public void testJDIAllFields() {
 		assertEquals("1", 1, fType.allFields().size());
 	}
 	/**
 	 * Test JDI allMethods().
 	 */
+	@Test
 	public void testJDIAllMethods() {
 		boolean found = false;
 		Iterator<?> it = fType.allMethods().iterator();
@@ -68,6 +72,7 @@ public class InterfaceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI implementors().
 	 */
+	@Test
 	public void testJDIImplementors() {
 		List<?> implementors = fType.implementors();
 		assertEquals("1", 1, implementors.size());
@@ -77,6 +82,7 @@ public class InterfaceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI subinterfaces().
 	 */
+	@Test
 	public void testJDISubinterfaces() {
 		List<?> subinterfaces = fType.subinterfaces();
 		assertEquals("1", 0, subinterfaces.size());
@@ -84,6 +90,7 @@ public class InterfaceTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI superinterfaces().
 	 */
+	@Test
 	public void testJDISuperinterfaces() {
 		List<?> superinterfaces = fType.superinterfaces();
 		assertEquals("1", 1, superinterfaces.size());

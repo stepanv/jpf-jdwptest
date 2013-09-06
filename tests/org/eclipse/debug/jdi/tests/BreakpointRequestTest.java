@@ -13,6 +13,8 @@ package org.eclipse.debug.jdi.tests;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
+
 import com.sun.jdi.request.BreakpointRequest;
 
 /**
@@ -48,6 +50,7 @@ public class BreakpointRequestTest extends AbstractJDITest {
 	/**
 	 * Test JDI location().
 	 */
+	@Test
 	public void testJDILocation() {
 		assertEquals("1", getLocation(), fRequest.location());
 	}

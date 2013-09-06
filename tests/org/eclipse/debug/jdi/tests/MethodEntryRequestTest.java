@@ -13,6 +13,8 @@ package org.eclipse.debug.jdi.tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.ClassType;
 import com.sun.jdi.Method;
 import com.sun.jdi.ReferenceType;
@@ -56,6 +58,7 @@ public class MethodEntryRequestTest extends AbstractJDITest {
 	/**
 	 * Tests a request without any filtering 
 	 */
+	@Test
 	public void testJDIWithoutFilter() {
 		MethodEntryRequest request = getMethodEntryRequest();
 
@@ -70,6 +73,7 @@ public class MethodEntryRequestTest extends AbstractJDITest {
 	/**
 	 * Test a request with class exclusion filtering
 	 */
+	@Test
 	public void testJDIWithClassExclusionFilter() {
 		MethodEntryRequest request = getMethodEntryRequest();
 		request.addClassExclusionFilter("org.eclipse.debug.jdi.tests.program.*");
@@ -87,6 +91,7 @@ public class MethodEntryRequestTest extends AbstractJDITest {
 	/**
 	 * Tests a method entry request with a specified class filter
 	 */
+	@Test
 	public void testJDIWithClassFilter1() {
 		MethodEntryRequest request = getMethodEntryRequest();
 		ClassType clazz = getClass("gov.nasa.jpf.ConsoleOutputStream");
@@ -105,6 +110,7 @@ public class MethodEntryRequestTest extends AbstractJDITest {
 	/**
 	 * Retests a method entry request with a specified class filter
 	 */
+	@Test
 	public void testJDIWithClassFilter2() {
 		MethodEntryRequest request = getMethodEntryRequest();
 		request.addClassFilter("gov.nasa.jpf.ConsoleOutputStream");
@@ -122,6 +128,7 @@ public class MethodEntryRequestTest extends AbstractJDITest {
 	/**
 	 * Tests a method entry request with a thread filter
 	 */
+	@Test
 	public void testJDIWithThreadFilter() {
 		MethodEntryRequest request = getMethodEntryRequest();
 		ThreadReference thr = getMainThread();

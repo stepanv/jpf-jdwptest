@@ -13,6 +13,8 @@ package org.eclipse.debug.jdi.tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.ClassType;
 import com.sun.jdi.Method;
 import com.sun.jdi.ReferenceType;
@@ -54,6 +56,7 @@ public class MethodExitRequestTest extends AbstractJDITest {
 	/**
 	 * Tests a method exit request without filtering 
 	 */
+	@Test
 	public void testJDIWithoutFilter() {
 		MethodExitRequest request = getMethodExitRequest();
 
@@ -68,6 +71,7 @@ public class MethodExitRequestTest extends AbstractJDITest {
 	/**
 	 * Tests a method exit request with an exclusion filter  
 	 */
+	@Test
 	public void testJDIWithClassExclusionFilter() {
 		MethodExitRequest request = getMethodExitRequest();
 		request.addClassExclusionFilter("org.eclipse.debug.jdi.tests.program.*");
@@ -85,6 +89,7 @@ public class MethodExitRequestTest extends AbstractJDITest {
 	/**
 	 * Tests a method exit request with a specific class filter 
 	 */
+	@Test
 	public void testJDIWithClassFilter1() {
 		MethodExitRequest request = getMethodExitRequest();
 		ClassType clazz = getClass("gov.nasa.jpf.ConsoleOutputStream");
@@ -103,6 +108,7 @@ public class MethodExitRequestTest extends AbstractJDITest {
 	/**
 	 * Retests a method exit request with a specific class filter
 	 */
+	@Test
 	public void testJDIWithClassFilter2() {
 		MethodExitRequest request = getMethodExitRequest();
 		request.addClassFilter("gov.nasa.jpf.ConsoleOutputStream");
@@ -120,6 +126,7 @@ public class MethodExitRequestTest extends AbstractJDITest {
 	/**
 	 * Test a method exit request with a thread filter
 	 */
+	@Test
 	public void testJDIWithThreadFilter() {
 		MethodExitRequest request = getMethodExitRequest();
 		ThreadReference thr = getMainThread();

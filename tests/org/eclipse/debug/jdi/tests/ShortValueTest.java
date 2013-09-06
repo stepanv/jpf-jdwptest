@@ -13,6 +13,8 @@ package org.eclipse.debug.jdi.tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.ShortValue;
 
 /**
@@ -40,6 +42,7 @@ public class ShortValueTest extends AbstractJDITest {
 	/**
 	 * Test JDI equals() and hashCode().
 	 */
+	@Test
 	public void testJDIEquality() {
 		assertTrue("1", fValue.equals(fVM.mirrorOf((short) 12345)));
 		assertTrue("2", !fValue.equals(fVM.mirrorOf((short) 54321)));
@@ -56,6 +59,7 @@ public class ShortValueTest extends AbstractJDITest {
 	/**
 	 * Test JDI value().
 	 */
+	@Test
 	public void testJDIValue() {
 		assertTrue("1", (short) 12345 == fValue.value());
 	}

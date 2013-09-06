@@ -12,6 +12,8 @@ package org.eclipse.debug.jdi.tests;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
+
 import com.sun.jdi.StringReference;
 
 /**
@@ -40,6 +42,7 @@ public class StringReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI value() and JDWP 'String - Get value'.
 	 */
+	@Test
 	public void testJDIValue() {
 		String value = fString.value();
 		assertEquals("1", "Hello World", value);

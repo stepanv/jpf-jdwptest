@@ -12,6 +12,8 @@ package org.eclipse.debug.jdi.tests;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
+
 import com.sun.jdi.StringReference;
 import com.sun.jdi.event.ModificationWatchpointEvent;
 import com.sun.jdi.request.WatchpointRequest;
@@ -62,6 +64,7 @@ public class ModificationWatchpointEventTest extends AbstractJDITest {
 	/**
 	 * Test JDI valueToBe().
 	 */
+	@Test
 	public void testJDIValueToBe() {
 		assertEquals(
 			"1",

@@ -16,6 +16,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import org.junit.Test;
+
 import com.sun.jdi.ClassNotLoadedException;
 import com.sun.jdi.ClassType;
 import com.sun.jdi.IncompatibleThreadStateException;
@@ -55,6 +57,7 @@ public class ThreadReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI currentContendedMonitor().
 	 */
+	@Test
 	public void testJDICurrentContendedMonitor() {
 		if (fVM.canGetCurrentContendedMonitor()) {
 			try {
@@ -67,6 +70,7 @@ public class ThreadReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI frame(int).
 	 */
+	@Test
 	public void testJDIFrame() {
 		try {
 			StackFrame frame = fThread.frame(0);
@@ -78,6 +82,7 @@ public class ThreadReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI frameCount.
 	 */
+	@Test
 	public void testJDIFrameCount() {
 		try {
 			int count = fThread.frameCount();
@@ -89,6 +94,7 @@ public class ThreadReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI frames() and JDWP 'Thread - Get frames'.
 	 */
+	@Test
 	public void testJDIFrames() {
 		List<?> frames = null;
 		try {
@@ -101,6 +107,7 @@ public class ThreadReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI interrupt()().
 	 */
+	@Test
 	public void testJDIInterrupt() {
 		assertEquals("1", 1, fThread.suspendCount());
 		fThread.interrupt();
@@ -109,24 +116,28 @@ public class ThreadReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI isAtBreakpoint().
 	 */
+	@Test
 	public void testJDIIsAtBreakpoint() {
 		assertTrue("1", !fThread.isAtBreakpoint());
 	}
 	/**
 	 * Test JDI isSuspended().
 	 */
+	@Test
 	public void testJDIIsSuspended() {
 		assertTrue("1", fThread.isSuspended());
 	}
 	/**
 	 * Test JDI name() and JDWP 'Thread - Get name'.
 	 */
+	@Test
 	public void testJDIName() {
 		assertEquals("1", "Test Thread", fThread.name());
 	}
 	/**
 	 * Test JDI ownedMonitors().
 	 */
+	@Test
 	public void testJDIOwnedMonitors() {
 		if (fVM.canGetOwnedMonitorInfo()) {
 			waitUntilReady();
@@ -140,6 +151,7 @@ public class ThreadReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI status() and JDWP 'Thread - Get status'.
 	 */
+	@Test
 	public void testJDIStatus() {
 		int status = fThread.status();
 		assertTrue(
@@ -151,6 +163,7 @@ public class ThreadReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI stop(ObjectReference).
 	 */
+	@Test
 	public void testJDIStop() {
 		// Make sure the entire VM is not suspended before we start a new thread
 		// (otherwise this new thread will start suspended and we will never get the
@@ -206,6 +219,7 @@ public class ThreadReferenceTest extends AbstractJDITest {
 	 * Test JDI suspend() and resume() 
 	 * and JDWP 'Thread - Suspend' and 'Thread - Resume'.
 	 */
+	@Test
 	public void testJDISuspendResume() {
 		assertEquals("1", 1, fThread.suspendCount());
 		fThread.resume();
@@ -218,6 +232,7 @@ public class ThreadReferenceTest extends AbstractJDITest {
 	/**
 	 * Test JDI threadGroup() and JDWP 'Thread - Get threadGroup'.
 	 */
+	@Test
 	public void testJDIThreadGroup() {
 		assertNotNull("1", fThread.threadGroup());
 	}

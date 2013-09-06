@@ -13,6 +13,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.AbsentInformationException;
 import com.sun.jdi.ClassNotLoadedException;
 import com.sun.jdi.IncompatibleThreadStateException;
@@ -41,6 +43,7 @@ public class ForceEarlyReturnTests extends AbstractJDITest {
 	/**
 	 * test to see if forcing early return is supported or not
 	 */
+	@Test
 	public void testCanForceEarlyReturn() {
 		if(is16OrGreater()) {
 			assertTrue("Should have force early return capabilities", fVM.canForceEarlyReturn());
@@ -53,6 +56,7 @@ public class ForceEarlyReturnTests extends AbstractJDITest {
 	/**
 	 * test for the specifying the return type for a forced return to make sure the new return value works
 	 */
+	@Test
 	public void testForceEarlyReturnIntType() {
 		if(!fVM.canForceEarlyReturn()) {
 			return;

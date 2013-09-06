@@ -16,6 +16,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Test;
+
 import com.sun.jdi.ObjectReference;
 import com.sun.jdi.ReferenceType;
 
@@ -45,6 +47,7 @@ public class HeapWalkingTests extends AbstractJDITest {
 	/**
 	 * test to make sure that the VM supports getting instance info for heap walking if it is a 1.6 VM
 	 */
+	@Test
 	public void testCanGetInstanceInfo() {
 		if(is16OrGreater()) {
 			assertTrue("Should have instance info", fVM.canGetInstanceInfo());
@@ -58,6 +61,7 @@ public class HeapWalkingTests extends AbstractJDITest {
 	 * tests the new method instanceCounts, to make sure it throws an NPE when required.
 	 * test is not applicable to non 1.6 VMs
 	 */
+	@Test
 	public void testGetInstanceCountsNullAttrib() {
 		if(!fVM.canGetInstanceInfo()) {
 			return;
@@ -72,6 +76,7 @@ public class HeapWalkingTests extends AbstractJDITest {
 	/**
 	 * tests to make sure the instanceCounts method throws a not supported
 	 */
+	@Test
 	public void testGetInstanceCountsUnsupported() {
 		if(is16OrGreater()) {
 			try {
@@ -94,6 +99,7 @@ public class HeapWalkingTests extends AbstractJDITest {
 	 * test to collect any referring instances can be collected for the specified class.
 	 * test is not applicable to non 1.6 VMs.
 	 */
+	@Test
 	public void testGetInstanceCounts() {
 		if(!fVM.canGetInstanceInfo()) {
 			return;
@@ -116,6 +122,7 @@ public class HeapWalkingTests extends AbstractJDITest {
 	/**
 	 * test to make sure instances throws an unsupported exception for non 1.6 VMs
 	 */
+	@Test
 	public void testGetInstancesUnsupported() {
 		fClass = getClass("java.io.PrintStream");
 		assertNotNull("classs should not be null", fClass);
@@ -140,6 +147,7 @@ public class HeapWalkingTests extends AbstractJDITest {
 	 * test to make sure instances throws and IllegalArgument exception for negative long arguments.
 	 * test is not applicable to non 1.6 VMs
 	 */
+	@Test
 	public void testGetInstancesNegativeMax() {
 		if(!fVM.canGetInstanceInfo()) {
 			return;
@@ -157,6 +165,7 @@ public class HeapWalkingTests extends AbstractJDITest {
 	 * test to collect a list of instances.
 	 * test is not applicable to non 1.6 VMs. 
 	 */
+	@Test
 	public void testGetInstances() {
 		if(!fVM.canGetInstanceInfo()) {
 			return;
@@ -175,6 +184,7 @@ public class HeapWalkingTests extends AbstractJDITest {
 	/**
 	 * test to make sure referringObjects throws an unsupported exception for non-1.6 VMs
 	 */
+	@Test
 	public void testGetReferringObjectsUnsupported() {
 		fClass = getMainClass();
 		assertNotNull("main class ref should not be null", fClass);
@@ -200,6 +210,7 @@ public class HeapWalkingTests extends AbstractJDITest {
 	/**
 	 * test to make sure referringObjects throws an IllegalArgument exception for bad values of max
 	 */
+	@Test
 	public void testGetreferringObjectsNegativeMax() {
 		if(!fVM.canGetInstanceInfo()) {
 			return;
@@ -221,6 +232,7 @@ public class HeapWalkingTests extends AbstractJDITest {
 	 * tests the method referring objects to ensure working to spec.
 	 * test is not applicable to non 1.6 VMs
 	 */
+	@Test
 	public void testGetReferringObjects() {
 		if(!fVM.canGetInstanceInfo()) {
 			return;

@@ -15,6 +15,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import org.junit.Test;
+
 import com.sun.jdi.IncompatibleThreadStateException;
 import com.sun.jdi.Method;
 import com.sun.jdi.ThreadReference;
@@ -38,6 +40,7 @@ public class MonitorFrameInfoTests extends AbstractJDITest {
 	 * test to see if a the 1.6 VM can get monitor frame info and that 
 	 * a non-1.6VM cannot.
 	 */
+	@Test
 	public void testCanGetMonitorFrameInfo() {
 		if(is16OrGreater()) {
 			assertTrue("Should have monitor frame info", fVM.canGetMonitorFrameInfo());
@@ -51,6 +54,7 @@ public class MonitorFrameInfoTests extends AbstractJDITest {
 	 * test to make sure the proper frames and monitors are collected for the corresponding thread ref.
 	 * this test has no effect in a non-1.6VM
 	 */
+	@Test
 	public void testOwnedMonitorsAndFrames() {
 		if(!fVM.canGetMonitorFrameInfo()) {
 			return;

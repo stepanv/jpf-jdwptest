@@ -14,6 +14,8 @@ package org.eclipse.debug.jdi.tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.ArrayReference;
 import com.sun.jdi.ArrayType;
 import com.sun.jdi.ClassNotLoadedException;
@@ -47,6 +49,7 @@ public class ArrayTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI componentSignature().
 	 */
+	@Test
 	public void testJDIComponentSignature() {
 		String signature = fType.componentSignature();
 		assertEquals("1", "Ljava/lang/String;", signature);
@@ -54,6 +57,7 @@ public class ArrayTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI componentType().
 	 */
+	@Test
 	public void testJDIComponentType() {
 		Type expected = fVM.classesByName("java.lang.String").get(0);
 		Type type = null;
@@ -67,6 +71,7 @@ public class ArrayTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI componentTypeName().
 	 */
+	@Test
 	public void testJDIComponentTypeName() {
 		String typeName = fType.componentTypeName();
 		assertEquals("1", "java.lang.String", typeName);
@@ -74,6 +79,7 @@ public class ArrayTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI newInstance(long).
 	 */
+	@Test
 	public void testJDINewInstance() {
 		ArrayReference instance = fType.newInstance(1);
 		assertTrue("1", instance.type().equals(fType));

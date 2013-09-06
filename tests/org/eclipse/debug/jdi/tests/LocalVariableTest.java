@@ -14,6 +14,8 @@ package org.eclipse.debug.jdi.tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.AbsentInformationException;
 import com.sun.jdi.ClassNotLoadedException;
 import com.sun.jdi.LocalVariable;
@@ -46,6 +48,7 @@ public class LocalVariableTest extends AbstractJDITest {
 	/**
 	 * Test JDI equals() and hashCode().
 	 */
+	@Test
 	public void testJDIEquality() {
 		assertTrue("1", fVar.equals(fVar));
 		LocalVariable other = null;
@@ -62,12 +65,14 @@ public class LocalVariableTest extends AbstractJDITest {
 	/**
 	 * Test JDI isArgument().
 	 */
+	@Test
 	public void testJDIIsArgument() {
 		assertTrue("1", !fVar.isArgument());
 	}
 	/**
 	 * Test JDI isVisible(StackFrame).
 	 */
+	@Test
 	public void testJDIIsVisible() {
 		assertTrue("1", fVar.isVisible(getFrame(RUN_FRAME_OFFSET)));
 
@@ -82,18 +87,21 @@ public class LocalVariableTest extends AbstractJDITest {
 	/**
 	 * Test JDI name().
 	 */
+	@Test
 	public void testJDIName() {
 		assertEquals("1", "t", fVar.name());
 	}
 	/**
 	 * Test JDI signature().
 	 */
+	@Test
 	public void testJDISignature() {
 		assertEquals("1", "Ljava/lang/Thread;", fVar.signature());
 	}
 	/**
 	 * Test JDI type().
 	 */
+	@Test
 	public void testJDIType() {
 		try {
 			assertEquals(
@@ -107,6 +115,7 @@ public class LocalVariableTest extends AbstractJDITest {
 	/**
 	 * Test JDI typeName().
 	 */
+	@Test
 	public void testJDITypeName() {
 		assertEquals("1", "java.lang.Thread", fVar.typeName());
 	}

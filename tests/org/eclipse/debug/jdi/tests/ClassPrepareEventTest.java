@@ -13,6 +13,8 @@ package org.eclipse.debug.jdi.tests;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
+
 import com.sun.jdi.event.ClassPrepareEvent;
 import com.sun.jdi.request.ClassPrepareRequest;
 
@@ -56,6 +58,7 @@ public class ClassPrepareEventTest extends AbstractJDITest {
 	/**
 	 * Test JDI referenceType().
 	 */
+	@Test
 	public void testJDIReferenceType() {
 		assertEquals(
 			"1",
@@ -65,6 +68,7 @@ public class ClassPrepareEventTest extends AbstractJDITest {
 	/**
 	 * Test JDI thread().
 	 */
+	@Test
 	public void testJDIThread() {
 		assertEquals("1", "Test Thread", fEvent.thread().name());
 	}

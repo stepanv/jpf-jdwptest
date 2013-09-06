@@ -14,6 +14,8 @@ package org.eclipse.debug.jdi.tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.ByteValue;
 
 /**
@@ -41,6 +43,7 @@ public class ByteValueTest extends AbstractJDITest {
 	/**
 	 * Test JDI equals() and hashCode().
 	 */
+	@Test
 	public void testJDIEquality() {
 		assertTrue("1", fValue.equals(fVM.mirrorOf((byte) 1)));
 		assertTrue("2", !fValue.equals(fVM.mirrorOf((byte) 2)));
@@ -52,6 +55,7 @@ public class ByteValueTest extends AbstractJDITest {
 	/**
 	 * Test JDI value().
 	 */
+	@Test
 	public void testJDIValue() {
 		assertTrue("1", 1 == fValue.value());
 	}

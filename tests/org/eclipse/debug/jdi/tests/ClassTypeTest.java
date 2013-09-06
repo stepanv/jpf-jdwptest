@@ -18,6 +18,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.junit.Test;
+
 import com.sun.jdi.AbsentInformationException;
 import com.sun.jdi.ClassNotLoadedException;
 import com.sun.jdi.ClassType;
@@ -60,6 +62,7 @@ public class ClassTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI allFields().
 	 */
+	@Test
 	public void testJDIAllFields() {
 		boolean found = false;
 		Iterator<?> it = fType.allFields().iterator();
@@ -74,6 +77,7 @@ public class ClassTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI allInterfaces().
 	 */
+	@Test
 	public void testJDIAllInterfaces() {
 		List<?> all = fType.allInterfaces();
 		boolean found = false;
@@ -89,6 +93,7 @@ public class ClassTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI allMethods().
 	 */
+	@Test
 	public void testJDIAllMethods() {
 		boolean found = false;
 		Iterator<?> it = fType.allMethods().iterator();
@@ -103,6 +108,7 @@ public class ClassTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI concreteMethodByName().
 	 */
+	@Test
 	public void testJDIConcreteMethodByName() {
 		Method method = fType.concreteMethodByName("run", "()V");
 		assertTrue("1", method != null);
@@ -112,6 +118,7 @@ public class ClassTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI interfaces().
 	 */
+	@Test
 	public void testJDIInterfaces() {
 		boolean found = false;
 		boolean extra = false;
@@ -134,6 +141,7 @@ public class ClassTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI invokeMethod(ThreadReference, Method, Value[]).
 	 */
+	@Test
 	public void testJDIInvokeMethod() {
 		// Make sure the entire VM is not suspended before we start a new thread
 		// (otherwise this new thread will start suspended and we will never get the
@@ -169,6 +177,7 @@ public class ClassTypeTest extends AbstractJDITest {
 	/**
 	 * The method throws an exception from the inside.
 	 */
+	@Test
 	public void testJDIInvokeMethodThreadNotSuspended() {
 		// Make sure the entire VM is not suspended before we start a new thread
 		// (otherwise this new thread will start suspended and we will never get the
@@ -205,6 +214,7 @@ public class ClassTypeTest extends AbstractJDITest {
 	/**
 	 * The thread is not suspended
 	 */
+	@Test
 	public void testJDIInvokeMethodFail() {
 		// Make sure the entire VM is not suspended before we start a new thread
 		// (otherwise this new thread will start suspended and we will never get the
@@ -234,6 +244,7 @@ public class ClassTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI locationsOfLine(int).
 	 */
+	@Test
 	public void testJDILocationsOfLine() {
 		int lineNumber = getLocation().lineNumber();
 		List<?> locations = null;
@@ -247,18 +258,21 @@ public class ClassTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI methodByName
 	 */
+	@Test
 	public void testJDIMethodByName() {
 		assertTrue("1", fType.methodsByName("main").size() == 1);
 	}
 	/**
 	 * Test JDI methodByNameAndSignature
 	 */
+	@Test
 	public void testJDIMethodByNameAndSignature() {
 		assertTrue("1", fType.methodsByName("printAndSignal", "()V").size() == 1);
 	}
 	/**
 	 * Test JDI methods().
 	 */
+	@Test
 	public void testJDIMethods() {
 		boolean found = false;
 		Iterator<?> it = fType.methods().iterator();
@@ -272,6 +286,7 @@ public class ClassTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI newInstance(ThreadReference, Method, Value[]).
 	 */
+	@Test
 	public void testJDINewInstance() {
 		// Make sure the entire VM is not suspended before we start a new thread
 		// (otherwise this new thread will start suspended and we will never get the
@@ -318,6 +333,7 @@ public class ClassTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI setValue(Field,Value) and JDWP 'Class - Set Fields Values'.
 	 */
+	@Test
 	public void testJDISetValue() {
 
 		// Get static field "fInt"
@@ -383,6 +399,7 @@ public class ClassTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI subclasses().
 	 */
+	@Test
 	public void testJDISubclasses() {
 		List<?> subclasses = fType.subclasses();
 		assertEquals("1", 1, subclasses.size());
@@ -395,6 +412,7 @@ public class ClassTypeTest extends AbstractJDITest {
 	/**
 	 * Test JDI superclass() and JDWP 'Class - Get superclass'.
 	 */
+	@Test
 	public void testJDISuperclass() {
 		ClassType superclass = fType.superclass();
 		assertEquals("1", "java.util.Date", superclass.name());

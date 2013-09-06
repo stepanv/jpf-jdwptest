@@ -13,6 +13,8 @@ package org.eclipse.debug.jdi.tests;
 
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.request.ExceptionRequest;
 
 /**
@@ -48,6 +50,7 @@ public class ExceptionRequestTest extends AbstractJDITest {
 	/**
 	 * Test JDI exception().
 	 */
+	@Test
 	public void testJDIException() {
 		assertTrue("1", fRequest.exception() == null);
 	}

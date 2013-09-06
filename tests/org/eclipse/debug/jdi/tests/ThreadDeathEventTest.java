@@ -12,6 +12,8 @@ package org.eclipse.debug.jdi.tests;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
+
 import com.sun.jdi.ObjectCollectedException;
 import com.sun.jdi.event.ThreadDeathEvent;
 
@@ -58,6 +60,7 @@ public class ThreadDeathEventTest extends AbstractJDITest {
 	/**
 	 * Test JDI thread().
 	 */
+	@Test
 	public void testJDIThread() {
 		try {
 			assertEquals(

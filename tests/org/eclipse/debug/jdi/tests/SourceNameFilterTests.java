@@ -15,6 +15,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.event.ClassPrepareEvent;
 import com.sun.jdi.request.ClassPrepareRequest;
 import com.sun.jdi.request.EventRequestManager;
@@ -36,6 +38,7 @@ public class SourceNameFilterTests extends AbstractJDITest {
 	 * that we cannot from a pre 1.6 VM
 	 * 
 	 */
+	@Test
 	public void testCanUseSourceNameFilters() {
 		if(fVM.version().indexOf("1.6") > -1) {
 			//TODO currently, as of 1.6 beta 2 this capability is disabled in 1.6 VMs, so lets make this test pass in that event
@@ -50,6 +53,7 @@ public class SourceNameFilterTests extends AbstractJDITest {
 	 * test to make sure the source name filter capability is working to spec.
 	 * this test does not apply to non-1.6 VMs
 	 */
+	@Test
 	public void testAddSourceNameFilter() {
 		if(!fVM.canUseSourceNameFilters()) {
 			return;

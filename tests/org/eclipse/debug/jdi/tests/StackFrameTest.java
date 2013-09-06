@@ -18,6 +18,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.Test;
+
 import com.sun.jdi.ClassNotLoadedException;
 import com.sun.jdi.InvalidTypeException;
 import com.sun.jdi.LocalVariable;
@@ -50,6 +52,7 @@ public class StackFrameTest extends AbstractJDITest {
 	/**
 	 * Test JDI equals() and hashCode().
 	 */
+	@Test
 	public void testJDIEquality() {
 		StackFrame sameFrame = getFrame(RUN_FRAME_OFFSET);
 		StackFrame otherFrame = getFrame(0);
@@ -71,6 +74,7 @@ public class StackFrameTest extends AbstractJDITest {
 	/**
 	 * Test JDI location().
 	 */
+	@Test
 	public void testJDILocation() {
 		assertNotNull("1", fFrame.location());
 	}
@@ -78,6 +82,7 @@ public class StackFrameTest extends AbstractJDITest {
 	 * Test JDI setValue(LocalVariable, Value), getValue(LocalVariable) and
 	 * getValues(List).
 	 */
+	@Test
 	public void testJDISetGetValue() {
 		// setValue
 		ThreadReference thread = fVM.allThreads().get(0);

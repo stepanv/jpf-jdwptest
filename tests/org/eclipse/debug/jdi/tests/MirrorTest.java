@@ -17,6 +17,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 
+import org.junit.Test;
+
 import com.sun.jdi.Mirror;
 import com.sun.jdi.request.AccessWatchpointRequest;
 import com.sun.jdi.request.BreakpointRequest;
@@ -110,6 +112,7 @@ public class MirrorTest extends AbstractJDITest {
 	/**
 	 * Test JDI toString().
 	 */
+	@Test
 	public void testJDIToString() {
 		for (int i = 0; i < fMirrors.size(); i++) {
 			Mirror mirror = fMirrors.get(i);
@@ -119,6 +122,7 @@ public class MirrorTest extends AbstractJDITest {
 	/**
 	 * Test JDI virtualMachine().
 	 */
+	@Test
 	public void testJDIVirtualMachine() {
 		for (int i = 0; i < fMirrors.size(); i++) {
 			Mirror mirror = fMirrors.get(i);

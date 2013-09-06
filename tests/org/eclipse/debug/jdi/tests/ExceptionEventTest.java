@@ -14,6 +14,8 @@ package org.eclipse.debug.jdi.tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import com.sun.jdi.ReferenceType;
 import com.sun.jdi.event.ExceptionEvent;
 
@@ -56,6 +58,7 @@ public class ExceptionEventTest extends AbstractJDITest {
 	/**
 	 * Test JDI catchLocation().
 	 */
+	@Test
 	public void testJDICatchLocation() {
 		// Uncaught exception
 		assertTrue("1", fEvent.catchLocation() == null);
@@ -65,6 +68,7 @@ public class ExceptionEventTest extends AbstractJDITest {
 	/**
 	 * Test JDI exception().
 	 */
+	@Test
 	public void testJDIException() {
 		ReferenceType expected =
 			fVM.classesByName("java.lang.Error").get(0);
@@ -73,6 +77,7 @@ public class ExceptionEventTest extends AbstractJDITest {
 	/**
 	 * Test JDI thread().
 	 */
+	@Test
 	public void testJDIThread() {
 		assertEquals("1", "Test Exception Event", fEvent.thread().name());
 	}

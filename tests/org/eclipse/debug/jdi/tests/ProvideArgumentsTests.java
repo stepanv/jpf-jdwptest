@@ -16,6 +16,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import org.junit.Test;
+
 import com.sun.jdi.IncompatibleThreadStateException;
 import com.sun.jdi.IntegerValue;
 import com.sun.jdi.InvalidStackFrameException;
@@ -43,6 +45,7 @@ public class ProvideArgumentsTests extends AbstractJDITest {
 	 * tests getting argument values from a stackframe when no debugging
 	 * info is available 
 	 */
+	@Test
 	public void testGetArgumentValues() {
 		try {
 			Method method = getMethod("argValues", "(Ljava/lang/String;ILjava/lang/Object;)V");
